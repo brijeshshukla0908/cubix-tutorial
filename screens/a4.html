@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Input Output (I/O)</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Input Output (I/O)</h1>
+  <hr>
+  <p>This tutorial focuses on two in-built functions printf() and scanf() to perform I/O task in C programming. Also, you will learn to write a valid program in C.</p>
+  <hr>
+  <h3>Table of Contents</h3>
+  <ul>
+	<li><a href="#c-out">Example: C Output</a></li>
+	<li><a href="#integer-output">Example: C Integer Output</a></li>
+	<li><a href="#integer-io">Example: C Integer Input/Output</a></li>
+	<li><a href="#float-io">Example : C Floats Input/Output</a></li>
+	<li><a href="#character-io">Example: C Character I/O</a></li>
+	<li><a href="#ascii-code">ASCII Code</a></li>
+	<li><a href="#ascii-io">Example: C ASCII Code</a></li>
+	<li><a href="#more-io">More on Input/Output of floats and Integers</a></li>
+  </ul>
+  <p>C programming has several in-built library functions</a> to perform input and output tasks.</p>
+  <p>Two commonly used functions for I/O (Input/Output) are <var>printf()</var> and <var>scanf()</var>.</p>
+  <p>The <var>scanf()</var> function reads formatted input from standard input (keyboard) whereas the <var>printf()</var> function sends formatted output to the standard output (screen).</p>
+  <hr>
+  <h2><a id="c-out" name="c-out"></a>Example 1: C Output</h2>
+  <p class="example">
+   #include &lt;stdio.h&gt;      // Including header file to run printf() function.<br>
+   int main()<br>
+  {<br>
+    printf(&quot;C Programming&quot;);  // Displays the content inside quotation<br>
+    return 0;<br>
+  }
+   </var>
+  </p>
+  <p><b>Output</b></p>
+  <p class="example">
+   C Programming</p>
+<p><b>How this program works?</b></p>
+
+<ul>
+	<li>All valid C program must contain the <var>main()</var> function. The code execution begins from the start of <var>main()</var> function.</li>
+	<li>The <var>printf()</var> is a library function to send formatted output to the screen. The <var>printf()</var> function is declared in <var>&quot;stdio.h&quot;</var> header file.</li>
+	<li>Here, <var>stdio.h</var> is a header file (standard input output header file) and <var>#include</var> is a preprocessor directive to paste the code from the header file when necessary. When the compiler encounters <var>printf()</var> function and doesn&#39;t find <var>stdio.h</var> header file, compiler shows error.</li>
+	<li>The <var>return 0;</var> statement is the &quot;Exit status&quot; of the program.</li>
+</ul>
+
+<hr>
+<h2><a id="integer-output" name="integer-output"></a>Example 2: C Integer Output</h2>
+
+<p class="example">
+<var>#include &lt;stdio.h&gt;<br>
+int main()<br>
+{<br>
+    int testInteger = 5;<br>
+    printf(&quot;Number = %d&quot;, testInteger);<br>
+    return 0;<br>
+}</var></p>
+
+<p><b>Output</b></p>
+
+<p class="example">
+<samp>Number = 5</samp></p>
+
+<p>Inside the quotation of <var>printf()</var> function, there is a format string <var>&quot;%d&quot;</var> (for integer). If the format string matches the argument (<var>testInteger</var> in this case), it is displayed on the screen.</p>
+
+<hr>
+<h2><a id="integer-io" name="integer-io"></a>Example 3: C Integer Input/Output</h2>
+
+<p class="example">
+<var>#include &lt;stdio.h&gt;<br>
+int main()<br>
+{<br>
+    int testInteger;<br>
+    printf(&quot;Enter an integer: &quot;);<br>
+    scanf(&quot;%d&quot;,&amp;testInteger);  <br>
+    printf(&quot;Number = %d&quot;,testInteger);<br>
+    return 0;<br>
+}</var></p>
+
+<p><b>Output</b></p>
+
+<p class="example">
+<samp>Enter an integer: 4<br>
+Number = 4</samp></p>
+
+<p>Note the <var>&#39;&amp;&#39;</var> sign before <var>testInteger</var>; <var>&amp;testInteger</var> gets the address of <var>testInteger</var> and the value is stored in that address.</p>
+
+<hr>
+<h2><a id="float-io" name="float-io"></a>Example 4: C Floats Input/Output</h2>
+
+<p class="example">
+<var>#include &lt;stdio.h&gt;<br>
+int main()<br>
+{<br>
+    float f;<br>
+    printf(&quot;Enter a number: &quot;);<br>
+// %f format string is used in case of floats<br>
+    scanf(&quot;%f&quot;,&amp;f);<br>
+    printf(&quot;Value = %f&quot;, f);<br>
+    return 0;<br>
+}
+</var></p>
+
+<p><b>Output</b></p>
+
+<p class="example">
+<samp>Enter a number: 23.45<br>
+Value = 23.450000
+</samp></p>
+
+<p>The format string &quot;%f&quot; is used to read and display formatted in case of floats.</p>
+
+<hr>
+<h2><a id="character-io" name="character-io"></a>Example 5: C Character I/O</h2>
+
+<p class="example">
+<var>#include &lt;stdio.h&gt;<br>
+int main()<br>
+{<br>
+    char chr;<br>
+    printf(&quot;Enter a character: &quot;);<br>
+    scanf(&quot;%c&quot;,&amp;chr);     <br>
+    printf(&quot;You entered %c.&quot;,chr);  <br>
+    return 0;<br>
+}   
+</var></p>
+
+<p><b>Output</b></p>
+
+<p class="example">
+<samp>Enter a character: g<br>
+You entered g.
+</samp></p>
+
+<p>Format string <var>%c</var> is used in case of character types.</p>
+
+<hr>
+<h3><a id="ascii-code" name="ascii-code"></a>Little bit on ASCII code</h3>
+
+<p>When a character is entered in the above program, the character itself is not stored. Instead, a numeric value(ASCII value) is stored.</p>
+
+<p>And when we displayed that value using <var>&quot;%c&quot;</var> text format, the entered character is displayed.</p>
+
+<hr>
+<h2><a id="ascii-io" name="ascii-io"></a>Example 6: C ASCII Code</h2>
+
+<p class="example">
+<var>#include &lt;stdio.h&gt;<br>
+int main()<br>
+{<br>
+    char chr;<br>
+    printf(&quot;Enter a character: &quot;);<br>
+    scanf(&quot;%c&quot;,&amp;chr);     <br>
+
+    // When %c text format is used, character is displayed in case of character types<br>
+    printf(&quot;You entered %c.\n&quot;,chr);  <br>
+
+    // When %d text format is used, integer is displayed in case of character types<br>
+    printf(&quot;ASCII value of %c is %d.&quot;, chr, chr);  <br>
+    return 0;
+}</var></p>
+
+<p><b>Output</b></p>
+
+<p class="example">
+<samp>Enter a character: g<br>
+You entered g.<br>
+ASCII value of g is 103.<br>
+The ASCII value of character &#39;g&#39; is 103. When, &#39;g&#39; is entered, 103 is stored in variable var1 instead of g. 
+</samp></p>
+
+<p>You can display a character if you know ASCII code of that character. This is shown by following example.</p>
+
+<hr>
+<h2>Example 7: C ASCII Code</h2>
+
+<p class="example">
+<var>#include &lt;stdio.h&gt;<br>
+int main()<br>
+{<br>
+    int chr = 69;<br>
+    printf(&quot;Character having ASCII value 69 is %c.&quot;,chr);<br>
+    return 0;<br>
+}  
+</var></p>
+
+<p><b>Output</b></p>
+
+<p class="example">
+<samp>Character having ASCII value 69 is E.</samp></p>
+
+<hr>
+<h2><a id="more-io" name="more-io"></a>More on Input/Output of floats and Integers</h2>
+
+<p>Integer and floats can be displayed in different formats in C programming.</p>
+
+<h3>Example #7: I/O of Floats and Integers</h3>
+
+<p class="example">
+<var>#include &lt;stdio.h&gt;
+int main()<br>
+{<br>
+
+    int integer = 9876;<br>
+    float decimal = 987.6543;<br>
+
+    //  Prints the number right justified within 6 columns<br>
+    printf(&quot;4 digit integer right justified to 6 column: %6d\n&quot;, integer);<br>
+
+    // Tries to print number right justified to 3 digits but the number is not right adjusted because there are only 4 numbers<br>
+    printf(&quot;4 digit integer right justified to 3 column: %3d\n&quot;, integer);<br>
+
+    // Rounds to two digit places<br>
+    printf(&quot;Floating point number rounded to 2 digits: %.2f\n&quot;,decimal);<br>
+
+    // Rounds to 0 digit places<br>
+    printf(&quot;Floating point number rounded to 0 digits: %.f\n&quot;,987.6543);<br>
+
+    // Prints the number in exponential notation(scientific notation)<br>
+    printf(&quot;Floating point number in exponential form: %e\n&quot;,987.6543);<br>
+    return 0;<br>
+}   
+</var></p>
+
+<p><b>Output</b></p>
+
+<p class="example">
+4 digit integer right justified to 6 column:   9876<br>
+4 digit integer right justified to 3 column: 9876<br>
+Floating point number rounded to 2 digits: 987.65<br>
+Floating point number rounded to 0 digits: 988<br>
+Floating point number in exponential form: 9.876543e+02  
+</p>
+  </body>
+ </html>
+
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming for Loop</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Programming for Loop</h1>
+  <hr>
+  <p>Loops are used in programming to repeat a specific block of var. After reading this tutorial, you will learn to create for loop in C programming.</p>
+  <hr>
+  <h2>Table of Contents</h2>
+  <ul>
+	<li><a href="#1">What is loop?</a></li>
+	<li><a href="#2">for loop (and it&#39;s syntax)</a></li>
+	<li><a href="#3">How for loop works?</a></li>
+	<li><a href="#4">for Loop flowchart</a></li>
+        <li><a href="#5">Example: for loop</a></li>
+  </ul>
+  <p id="1">Loops are used in programming to repeat a block of var until a specific condition is met. There are three loops in C programming:</p>
+  <ol>
+	<li>for loop</li>
+	<li><a href="b3.html">while loop</a></li>
+	<li><a href="b3.html">do...while loop</a></li>
+  </ol>
+  <hr />
+  <h2 id="2">for Loop</h2>
+  <p>&nbsp;The syntax of for loop is:</p>
+  <p class="example">
+  for (initializationStatement; testExpression; updateStatement)<br>
+  {<br>
+       // codes<br> 
+  }</p>
+  <hr />
+  <h3 id="3"></a>How for loop works?</h3>
+  <p>The initialization statement is executed only once.</p>
+  <p>Then, the test expression is evaluated. If the test expression is false (0), for loop is terminated. But if the test expression is true (nonzero), vars inside the body of <var>for</var> loop is executed and the update expression is updated.</p>
+  <p>This process repeats until the test expression is false.</p>
+  <p>The <var>for</var> loop is commonly used when the number of iterations is known.</p>
+  <hr />
+  <h3 id="4">for loop Flowchart</h3>
+  <img src="../images/forflow.jpg" alt="for loop" style="width:50%"> 
+  <hr />
+  <h3 id="5">Example: for loop</h3>
+  <p class="example">
+   // Program to calculate the sum of first n natural numbers   <br>
+   // Positive integers 1,2,3...n are known as natural numbers   <br>
+   #include &lt;stdio.h&gt;   <br>
+   int main()   <br>
+  {   <br>
+    int num, count, sum = 0;   <br>
+    printf(&quot;Enter a positive integer: &quot;);   <br>
+    scanf(&quot;%d&quot;, &amp;num);   <br>
+    // for loop terminates when n is less than count   <br>
+    for(count = 1; count &lt;= num; ++count)   <br>
+    {   <br>
+        sum += count;   <br>
+    }   <br>
+    printf(&quot;Sum = %d&quot;, sum);   <br>
+    return 0;   <br>
+  }
+  </p>
+  <p><strong>Output</strong></p>
+  <p class="example">
+  Enter a positive integer: 10   <br>
+   Sum = 55</p>
+  <p>The value entered by the user is stored in variable <var>num</var>. Suppose, the user entered 10.</p>
+  <p>The <var>count</var> is initialized to 1 and the test expression is evaluated. Since, the test expression <var>count &lt;= num</var> (1 less than or equal to 10) is true, the body of for loop is executed and the value of <var>sum</var> will equal to 1.</p>
+  <p>Then, the update statement <var>++count</var> is executed and count will equal to 2. Again, the test expression is evaluated. Since, 2 is also less than 10, the test expression is evaluated to true and the body of for loop is executed. Now, the <var>sum</var> will equal 3.</p>
+  <p>This process goes on and the sum is calculated until the count reaches 11.</p>
+  <p>When the count is 11, &nbsp;the test expression is evaluated to 0 (false) as 11 is not less than or equal to 10. Therefore, the loop terminates and next, the total sum is printed.</p>
+  </body>
+  </html>

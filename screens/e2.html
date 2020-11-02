@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Pointers and Arrays</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Pointers and Arrays</h1>
+  <hr>
+  <p>In this article, you'll learn to manipulate arrays using pointers with the examples.</p>
+  <hr>
+  <h3>Table of Contents</h3>
+  <ul>
+	<li><a href="#1">Address of array elements</a></li>
+	<li><a href="#2">Relation between arrays and pointers</a></li>
+	<li><a href="#3">Example 1: Arrays and pointers</a></li>
+	<li><a href="#4">Example 2: Arrays and pointers</a></li>
+  </ul>
+  <p>Before you learn about how pointers can be used to work with arrays, be sure to check these two topics:</p>
+  <ul>
+	<li><a href="d1.html">C Arrays</a></li>
+	<li><a href="e1.html">C Pointers</a></li>
+  </ul>
+  <p id="1">Now, check this simple program. This program prints address of each individual element of an array.</p>
+  <p class="example">
+  #include &lt;stdio.h&gt;    <br>
+  int main()    <br>
+  {    <br>
+   int x[4];    <br>
+   int i;    <br>
+   for(i = 0; i &lt; 4; ++i)    <br>
+   {    <br>
+      printf(&quot;&amp;x[%d] = %u\n&quot;, i, &amp;x[i]);    <br>
+   }    <br>
+   printf(&quot;Address of array x: %u&quot;, x);    <br>
+   return 0;    <br>
+  }
+  </p>
+  <p>When you run the program, the output will be something like:</p>
+  <p class="example">
+   &amp;x[0] = 1450734448    <br>
+   &amp;x[1] = 1450734452    <br>
+   &amp;x[2] = 1450734456    <br>
+   &amp;x[3] = 1450734460    <br>
+   Address of array x: 1450734448
+  </p>
+  <p>There is a difference of 4 bytes between two consecutive elements of array <var>x</var>. It is because the size of <var>int</var> is 4 bytes (on our compiler).</p>
+  <p>Notice that, printing <var>&amp;x[0]</var> and <var>x</var> gave us the same result.</p>
+  <hr>
+  <h2 id="2">Relation between Arrays and Pointers</h2>
+  <p>Consider an array:</p>
+  <p class="example">int x[4];</p>
+  <p><img alt="Relation between arrays and pointers" src="../images/reap.jpg" style="max-width:60%"></p>
+  <p>From the above example, it&#39;s clear that <var>x</var> and <var>&amp;x[0]</var> both contains the same address. Hence, <var>&amp;x[0]</var> is equivalent to <var>x</var>.</p>
+  <p>And, <var>x[0]</var> is equivalent to <var>*x</var>.</p>
+  <p>Similarly,</p>
+  <ul>
+	<li><var>&amp;x[1]</var> is equivalent to <var>x+1</var> and <var>x[1]</var> is equivalent to <var>*(x+1)</var>.</li>
+	<li><var>&amp;x[2]</var> is equivalent to <var>x+2</var> and <var>x[2]</var> is equivalent to <var>*(x+2)</var>.</li>
+	<li>...</li>
+	<li>Basically, <var>&amp;x[i]</var> is equivalent to <var>x+i</var> and <var>x[i]</var> is equivalent to <var>*(x+i)</var>.</li>
+  </ul>
+  <hr>
+  <h3 id="3">Example 1: Pointers and Arrays</h3>
+  <p class="example">
+  #include &lt;stdio.h&gt;       <br>
+   int main()       <br>
+  {       <br>
+   int i, x[6], sum = 0;       <br>
+   printf(&quot;Enter 6 numbers: &quot;);       <br>
+   for(i = 0; i &lt; 6; ++i)       <br>
+    {       <br>
+      scanf(&quot;%d&quot;, x+i);       <br>
+      sum += *(x+i);       <br>
+    }       <br>
+  printf(&quot;Sum = %d&quot;, sum);       <br>
+  return 0;       <br>
+  }
+  </p>
+  <p>When you run the program, the output will be:</p>
+  <p class="example">
+   Enter 6 numbers:  2       <br>
+   3       <br>
+   4       <br>
+   4       <br>
+   12       <br>
+   4        <br>
+  Sum = 29 
+  </p>
+  <hr>
+  <p>In most contexts, array names &quot;decays&quot; to pointers. In simple words, array names are converted to pointers. That&#39;s the reason why you can use pointer with the same name as array to manipulate elements of the array. However, you should remember that <strong>pointers and arrays are not same</strong>.</p>
+  <hr>
+  <h3 id="4">Example 2: Arrays and Pointers</h3>
+  <p class="example">
+    #include &lt;stdio.h&gt;       <br>
+    int main()       <br>
+   {       <br>
+    int x[5] = {1, 2, 3, 4, 5};       <br>
+    int* ptr;       <br>
+    ptr = &amp;x[2];        <br>
+    printf(&quot;*ptr = %d \n&quot;, *ptr);       <br>
+    printf(&quot;*ptr+1 = %d \n&quot;, *ptr+1);       <br>
+    printf(&quot;*ptr-1 = %d&quot;, *ptr-1);       <br>
+    return 0;       <br>
+   }
+  </p>
+  <p>When you run the program, the output will be:</p>
+  <p class="example">
+   *ptr = 3       <br> 
+   *ptr+1 = 4        <br>
+   *ptr-1 = 2    
+  </p>
+  <p>In this example, <var>&amp;x[2]</var> (address of the third element of array <var>x</var>) is assigned to the pointer <var>ptr</var>. Hence,   <var>3</var> was displayed when we printed <var>*ptr</var>.</p>
+  <p>And, printing <var>*ptr+1</var> gives us the fourth element. Similarly, printing <var>*ptr-1</var> gives us the second element.</p>
+ </body>
+</html>

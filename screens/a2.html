@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Constants and Variables</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Programming Constants and Variables</h1>
+  <hr>
+  <p>In this tutorial, you will learn about variables, rules for naming a variable, constants and different type of constants in c programming.</p>
+  <hr>
+  <h2>Table of Contents</h2>
+  <ul id="content">
+        <li><a href="#1">variables</a>
+                 <ul style="list-style-type:circle;">
+			<li><a href="#1a">Rules for naming a variable</a></li>
+		</ul>
+	</li>
+	<li><a href="#2">Constants</a>
+		<ul style="list-style-type:circle;">
+			<li><a href="#2a">Integers</a></li>
+			<li><a href="#2b">Floating-point Numbers</a></li>
+			<li><a href="#2c">Character Constants</a></li>
+			<li><a href="#2d">Escape Sequences</a></li>
+			<li><a href="#2e">String Literals</a></li>
+			<li><a href="#2f">Enumerations</a></li>
+		</ul>
+	</li>
+  </ul>
+  <h2 id="1">Variables</h2>
+  <p>In programming, a variable is a container (storage area) to hold data.<br>To indicate the storage area, each variable should be given a  unique name  (identifier). Variable names are just the symbolic representation of a memory location. For example:</p>
+  <p class="example">
+  int playerScore = 95;</p>
+  <p>Here, playerScore is a variable of integer type. Here, the variable is assigned an integer value 95.<br>The value of a variable can be changed, hence the name variable.</p>
+  <p class="example">
+  char ch = 'a';<br>
+  // some code<br>
+  ch = 'l';</p>
+  <hr>
+  <h2 id="1a">Rules for naming a variable</h2>
+  <ol>
+	<li>A variable name can have letters (both uppercase and lowercase letters), digits and underscore only.</li>
+	<li>The first letter of a variable should be either a letter or an underscore.</li>
+	<li>There is no rule on how long a variable name&nbsp;(identifier) can be. However, you may run into problems in some compilers if variable name is longer than 31 characters.</li>
+</ol>
+ <p><strong>Note:</strong> You should always try to give meaningful names to variables. For example: <var>firstName</var> is a better variable name than <var>fn</var>.</p>
+  <p>C is a strongly typed language. This means, variable type cannot be changed once it is declared. For example:</p>
+  <p class="example">
+  int number = 5;      // integer variable<br>
+  number = 5.5;        // error<br>
+  double number;       // error</p>
+  <p>Here, the type of <var>number</var> variable is <var>int</var>. You cannot assign floating-point (decimal) value <var>5.5</var> to this variable. Also, you cannot redefine the type of the variable to <var>double</var>. By the way, to store decimal values in C, you need to   declare its type to either <var>double</var> or <var>float</var>.</p>
+  <hr>
+  <h2 id="2">Constants/Literals</h2>
+  <p>A Constant Is A Value (Or An Identifier) Whose Value Cannot Be Altered In A Program. For Example: <Var>1, <Var>2.5, 'C' </Var> Etc.</ var></p>
+  <p>Here, <var>1</var> <var>2.5</var> and <var>'c'</var>are literal constants. Why? You cannot assign different values to these terms.</p>
+  <p>You can also create non-modifiable variables in C programming. For example:</p>
+  <p class="example">
+  const double PI = 3.14;</p>
+  <p>Notice, we have added keyword <var>const</var>.</p>
+  <p>Here, <var>PI</var> is a symbolic constant. It's actually a variable however, it's value cannot be changed.</p>
+  <p class="example">
+  const double PI = 3.14;<br>
+  PI = 2.9;         //Error
+  </p>
+  <p>Below are the different types of constants you can use in C.</p>
+  <hr>
+  <h3 id="2a">1. Integers</h3>
+  <p>An integer is a numeric constant (associated with number) without any fractional or exponential part. There are three types of integer  constants in C programming:</p>
+  <ul>
+	<li>decimal constant(base 10)</li>
+	<li>octal constant(base 8)</li>
+	<li>hexadecimal constant(base 16)</li>
+  </ul>
+  <p>For example:</p>
+  <p class="example">
+  Decimal constants: 0, -9, 22 etc<br>
+  Octal constants: 021, 077, 033 etc<br>
+  Hexadecimal constants: 0x7f, 0x2a, 0x521 etc</p>
+  <p>In C programming, octal starts with a <var>0</var>, and hexadecimal starts with a <var>0x</var>.</p>
+  <hr />
+  <h3 id="2b">2. Floating-point constants</h3>
+  <p>A floating point constant is a numeric constant that has either a fractional form or an exponent form. For example:</p>
+ <p class="example">
+  -2.0<br>
+  0.0000234<br>
+  -0.22E-5
+  </p>
+  <p><strong>Note: </strong><var>E-5 = 10<sup>-5</sup></var></p>
+  <hr />
+  <h3 id="2c">3. Character constants</h3>
+  <p>A character constant is created by enclosing a single character inside single quotation marks. For example: <var>'a'</var>, <var>'m'</var>, <var>'F'</var>, <var>'2'</var>, <var>'}'</var> etc;</p>
+  <hr />
+  <h3 id="2d">4. Escape Sequences</h3>
+  <p>Sometimes, it is necessary to use characters which cannot be typed or has special meaning in C programming. For example: newline(enter), tab,  question mark etc. In order to use these characters, escape sequence is used.</p>
+  <p>For example: <var>\n</var> is used for newline. The backslash<var> \</var> causes escape from the normal way the characters are handled by the compiler.</p>
+  <table>
+	<caption>Escape Sequences</caption>
+		<tr>
+			<th >Escape Sequences</th>
+			<th >Character</th>
+		</tr>
+		<tr>
+			<td>\b</td>
+			<td>Backspace</td>
+		</tr>
+		<tr>
+			<td>\f</td>
+			<td>Form feed</td>
+		</tr>
+		<tr>
+			<td>\n</td>
+			<td>Newline</td>
+		</tr>
+		<tr>
+			<td>\r</td>
+			<td>Return</td>
+		</tr>
+		<tr>
+			<td>\t</td>
+			<td>Horizontal tab</td>
+		</tr>
+		<tr>
+			<td>\v</td>
+			<td>Vertical tab</td>
+		</tr>
+		<tr>
+			<td>\\</td>
+			<td>Backslash</td>
+		</tr>
+		<tr>
+			<td>\'</td>
+			<td>Single quotation mark</td>
+		</tr>
+		<tr>
+			<td>\"</td>
+			<td>Double quotation mark</td>
+		</tr>
+		<tr>
+			<td>\?</td>
+			<td>Question mark</td>
+		</tr>
+		<tr>
+			<td>\0</td>
+			<td>Null character</td>
+		</tr>
+  </table>
+  <hr />
+  <h3 id="2e">5. String Literals</h3>
+  <p>A string literal is a sequence of characters enclosed in double-quote marks. For example:</p>
+  <p class="example">
+  "good"&emsp;&emsp;<i>//string constant</i><br>
+  ""&emsp;&emsp;<i>//null string constant</i><br>
+  "      "&emsp;&emsp;<i>//string constant of six white space</i><br>
+  "x"&emsp;&emsp;<i>//string constant having single character</i><br>
+  "Earth is round\n"&emsp;&emsp;<i>//prints string with newline</i>
+  </p>
+  <hr />
+  <h3 id="2f">6. Enumerations</h3>
+  <p>Keyword <var>enum</var> is used to define enumeration types. For example:</p>
+  <p class="example">
+   enum color {yellow, green, black, white};</p>
+   <p>Here, <var>color</var> is a variable and <var>yellow</var>, <var>green</var>, <var>black</var> and <var>white</var> are the enumeration constants having value 0, 1, 2 and 3 respectively. 
+  <hr>

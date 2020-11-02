@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Functions</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Programming Functions</h1>
+  <hr>
+  <p>In this tutorial, you will be introduced to functions (both user-defined and standard library functions) in C programming. Also, you will learn why functions are used in programming.</p>
+  <hr>
+  <h3>Table of Contents</h3>
+  <ul>
+	<li><a href="#1">What is a function?</a></li>
+	<li><a href="#2">Types of function</a></li>
+	<li><a href="#3">Standard library function</a></li>
+	<li><a href="#4">User-defined function</a></li>
+	<li><a href="#5">How user-defined function work?</a></li>
+	<li><a href="#6">Advantages of function</a></li>
+        <li><a href="#7">Example: User-defined-function</a></li>
+	<li><a href="#8">Function prototype</a></li>
+	<li><a href="#9">Function call</a></li>
+	<li><a href="#10">Function definition</a></li>
+	<li><a href="#11">Passing arguments to a function</a></li>
+	<li><a href="#12">Return statement</a></li>
+        <li><a href="#13">Recursion</a></li>
+	<li><a href="#13">How recursion works?</a></li>
+	<li><a href="#14">Example: Sum of Natural Numbers Using Recursion</a></li>
+	<li><a href="#15">Advantages and Disadvantages of Recursion</a></li>
+  </ul>
+  <p id="1">A function is a block of code that performs a specific task.</p>
+  <p>Suppose, a program related to graphics needs to create a circle and color it depending upon the radius and color from the user. You can create two functions to solve this problem:</p>
+  <ul>
+	<li>create a circle function</li>
+	<li>color function</li>
+  </ul>
+  <p>Dividing complex problem into small components makes program easy to understand and use.</p>
+  <h2 id="2">Types of function</h2>
+  <p>Depending on whether a function is defined by the user or already included in C compilers, there are two types of functions in C programming</p>
+  <p>There are two types of function in C programming:</p>
+  <ul>
+	<li><a href="">Standard library functions</a></li>
+	<li><a href="">User defined functions</a></li>
+  </ul>
+  <hr>
+  <h3 id="3">Standard library functions</h3>
+  <p>The standard library functions are built-in functions in C programming to handle tasks such as mathematical computations, I/O processing, string handling etc.</p>
+  <p>These functions are defined in the header file. When you include the header file, these functions are available for use. For example:</p>
+  <p>The <var>printf()</var> is a standard library function to send formatted output to the screen (display output on the screen). This function is defined in <var>&quot;stdio.h&quot;</var> header file.</p>
+  <p>There are other numerous library functions defined under <var>&quot;stdio.h&quot;</var>, such as <var>scanf()</var>, <var>fprintf()</var>, <var>getchar()</var> etc. Once you include <var>&quot;stdio.h&quot;</var> in your program, all these functions are available for use.</p>
+  <hr>
+  <h3 id="4">User-defined function</h3>
+  <p>As mentioned earlier, C allow programmers to define functions. Such functions created by the user are called user-defined functions.</p>
+  <p>You can create as many user-defined functions as you want.</p>
+  <hr>
+  <h2 id="5">How user-defined function works?</h2>
+  <p class="example">
+   #include &lt;stdio.h&gt;    <br>
+   void functionName()    <br>
+   {    <br>
+    ... .. ...    <br>
+    ... .. ...    <br>
+   }    <br>
+   int main()    <br>
+   {    <br>
+    ... .. ...    <br>
+    ... .. ...    <br>
+    functionName();    <br>
+    ... .. ...    <br>
+    ... .. ...    <br>
+   }
+  </p>
+  <p>The execution of a C program begins from the <var>main()</var> function.</p>
+  <p>When the compiler encounters <var>functionName();</var> inside the main function, control of the program jumps to</p>
+  <p class="example">void functionName()<p>
+  <p>And, the compiler starts executing the codes inside the user-defined function.</p>
+  <p>The control of the program jumps to statement next to <var>functionName();</var> once all the codes inside the function definition are executed.</p>
+  <p><img src="../images/funwor.jpg" alt="How function works in C programming?" style="max-width:50%"></p>
+  <p>Remember, function name is an identifier and should be unique.</p>
+  <h3 id="6" >Advantages of user-defined function</h3>
+  <ol>
+	<li>The program will be easier to understand, maintain and debug.</li>
+	<li>Reusable codes that can be used in other programs</li>
+	<li>A large program can be divided into smaller modules. Hence, a large project can be divided among many programmers.</li>
+  </ol>
+  <hr>
+
+  <h2 id="7">Example: User-defined function</h2>
+  <p>Here is an example to add two integers. To perform this task, an user-defined function <var>addNumbers()</var> is defined.</p>
+  <p class="example">
+   #include &lt;stdio.h&gt;   <br>
+   int addNumbers(int a, int b);&nbsp;&nbsp;&nbsp;&nbsp;// function prototype   <br>
+   int main()   <br>
+   {   <br>
+    int n1,n2,sum;   <br>
+    printf(&quot;Enters two numbers: &quot;);   <br>
+    scanf(&quot;%d %d&quot;,&amp;n1,&amp;n2);   <br>
+    sum = addNumbers(n1, n2);&nbsp;&nbsp;&nbsp;&nbsp;// function call   <br>
+    printf(&quot;sum = %d&quot;,sum);   <br>
+    return 0;   <br>
+   }   <br>
+   int addNumbers(int a,int b)&nbsp;&nbsp;&nbsp;&nbsp;// function definition      <br>
+   {   <br>
+    int result;   <br>
+    result = a+b;   <br>
+    return result;&nbsp;&nbsp;&nbsp;&nbsp;// return statement   <br>
+   }
+  </p>
+  <hr>
+  <h2 id="8">Function prototype</h2>
+  <p>A function prototype is simply the declaration of a function that specifies function&#39;s name, parameters and return type. It doesn&#39;t contain function body.</p>
+  <p>A function prototype gives information to the compiler that the function may later be used in the program.</p>
+  <h3>Syntax of function prototype</h3>
+  <p class="example">returnType functionName(type1 argument1, type2 argument2,...);</p>
+  <p>In the above example, <var>int addNumbers(int a, int b);</var> is the function prototype which provides following information to the compiler:</p>
+  <ol>
+	<li>name of the function is <var>addNumbers()</var></li>
+	<li>return type of the function is <var>int</var></li>
+	<li>two arguments of type <var>int</var> are passed to the function</li>
+  </ol>
+  <p>The function prototype is not needed if the user-defined function is defined before the <var>main()</var> function.</p>
+  <hr>
+  <h2 id="9">Calling a function</h2>
+  <p>Control of the program is transferred to the user-defined function by calling it.</p>
+  <h3>Syntax of function call</h3>
+  <p class="example">functionName(argument1, argument2, ...);</p>
+  <p>In the above example, function call is made using&nbsp;<var>addNumbers(n1,n2);</var>&nbsp;statement inside the <var>main()</var>.</p>
+  <hr>
+  <h2 id="10">Function definition</h2>
+  <p>Function definition contains the block of code to perform a specific task i.e. in this case, adding two numbers and returning it.</p>
+  <h4>Syntax of function definition</h4>
+  <p class="example">
+  returnType functionName(type1 argument1, type2 argument2, ...)   <br>
+  {   <br>
+    //body of the function   <br>
+  }
+  </p>
+  <p>When a function is called, the control of the program is transferred to the function definition. And, the compiler starts executing the codes inside the body of a function.</p>
+  <hr>
+  <h2 id="11">Passing arguments to a function</h2>
+  <p>In programming, argument refers to the variable passed to the function. In the above example, two variables <var>n1</var> and <var>n2</var> are passed during function call.</p>
+  <p>The parameters <var>a</var> and <var>b</var> accepts the passed arguments in the function definition. These arguments are called formal parameters of the function.</p>
+  <p><img src="../images/pasarg.jpg" alt="Passing arguments to a function" style="max-width:50%"></p>
+  <p>The type of arguments passed to a function and the formal parameters must match, otherwise the compiler throws error.</p>
+  <p>If <var>n1</var> is of char type, <var>a</var> also should be of char type. If <var>n2</var> is of float type, variable <var>b</var> also should be of float type.</p>
+  <p>A function can also be called without passing an argument.</p>
+  <hr>
+  <h2 id="12">Return Statement</h2>
+  <p>The return statement terminates the execution of a function and returns a value to the calling function. The program control is transferred to the calling function after return statement.</p>
+  <p>In the above example, the value of variable <var>result</var> is returned to the variable <var>sum</var> in the <var>main()</var> function.</p>
+  <p><img src="../images/refun.jpg" alt="Return statement of a function" style="max-width:50%"></p>
+  <h3>Syntax of return statement</h3> 
+  <p class="example">return (expression);</p>
+  <p>For example,</p>
+  <p class="example">
+  return a;   <br>
+  return (a+b);</p>
+  <p>The type of value returned from the function and the return type specified in function prototype and function definition must match.</p>
+
+
+  <h2>Recursion</h2>
+  A function that calls itself is known as a recursive function. And, this technique is known as recursion.</p>
+  <hr>
+  <h3 id="13">How recursion works?</h3>
+  <p class="example">
+  void recurse()
+  {
+    ... .. ...
+    recurse();
+    ... .. ...
+  }
+  int main()
+  {
+    ... .. ...
+    recurse();
+    ... .. ...
+  }
+  </p>
+  <p><img src="../images/rewor.jpg" alt="How recursion works in C programming?" style="max-width:50%"></p>
+  <p>The recursion continues until some condition is met to prevent it.</p>
+  <p>To prevent infinite recursion, <a href="b1.html">if...else statement</a> (or similar approach) can be used where one branch makes the recursive call and other doesn&#39;t.</p>
+  <hr>
+  <h3 id="14">Example: Sum of Natural Numbers Using Recursion</h3>     
+  <p class="example"> 
+   #include &lt;stdio.h&gt;     <br>
+   int sum(int n);     <br>
+   int main()     <br>
+  {     <br>
+    int number, result;     <br>
+    printf(&quot;Enter a positive integer: &quot;);     <br>
+    scanf(&quot;%d&quot;, &amp;number);     <br>
+    result = sum(number);     <br>
+    printf(&quot;sum = %d&quot;, result);     <br>
+    return 0;     <br>
+  }     <br>
+  int sum(int num)     <br>
+  {     <br>
+    if (num!=0)     <br>
+        return num + sum(num-1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// sum() function calls itself     <br>
+    else     <br>
+        return num;     <br>
+  }
+  </p>
+  <p><strong>Output</strong></p>
+  <p class="example">
+   Enter a positive integer:3    <br>
+   sum = 6
+  </p>
+  <hr>
+  <p>Initially, the <var>sum()</var> is called from the <var>main()</var> function with <var>number</var> passed as an argument.</p>
+  <p>Suppose, the value of <var>num</var> is 3 initially. During next function call, 2 is passed to the <var>sum()</var> function. This process continues until <var>num</var> is equal to 0.</p>
+  <p>When <var>num</var> is equal to 0, the if condition fails and the else part is executed returning the sum of integers to the <var>main()</var> function.</p>
+  <p><img src="../images/calre.jpg" alt="Calculation of sum of natural number using recursion" style="max-width:50%"></p>
+  <hr>
+  <h3 id="15">Advantages and Disadvantages of Recursion</h3>
+  <p>Recursion makes program elegant and more readable.However, if performance is vital then,&nbsp;use <a href="b2.html">loops</a>&nbsp;instead as recursion is usually much slower.</p>
+  <p>Note that, every recursion can be modeled into a loop.</p>
+ </body>
+</html>
+

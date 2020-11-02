@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming break and continue Statement</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Programming break and continue Statement</h1>
+  <hr>
+  <p>The break statement terminates the loop, whereas continue statement forces the next iteration of the loop. In this tutorial, you will learn to use break and continue with the help of examples. </p>
+  <h3>Table of Contents</h3>
+  <ul>
+	<li><a href="#1">break statement</a>
+		<ul>
+			<li><a href="#1a">How break statement works?</a></li>
+			<li><a href="#1b">Example: break statement</a></li>
+		</ul>
+	</li>
+	<li><a href="#2">continue statement</a>
+		<ul>
+			<li><a href="#2a">How continue statement works?</a></li>
+			<li><a href="#2b">Example: continue statement</a></li>
+		</ul>
+	</li>
+  </ul>
+  <p>It is sometimes desirable to skip some statements inside the loop or terminate the loop immediately without checking the test expression.</p>
+  <p>In such cases, <var>break</var> and <var>continue</var> statements are used.</p>
+  <hr>
+  
+  
+
+  <h2 id="1">break Statement</h2>
+  <p>The break statement terminates the loop (<a href="b2.html">for</a>, <a href="b3.html">while and do...while loop</a>) immediately when it is encountered. Its syntax is:</p>
+  <p class="example">
+   break;</p>
+  <p>The break statement is almost always used with <a href="b1.html">if...else</a> statement inside the loop.</p>
+  <hr>
+  <h3 id="1a">How break statement works?</h3>
+  <p><img src="../images/brewor.jpg" alt="Working of break statement"></p>
+  <hr>
+  <h3 id="1b"></a>Example 1: break statement</h3>
+  <p class="example">
+   // Program to calculate the sum of maximum of 10 numbers     <br>
+   // If negative number is entered, loop terminates and sum is displayed     <br>
+   #include &lt;stdio.h&gt;     <br>
+    int main()     <br>
+   {     <br>
+    int i;     <br>
+    double number, sum = 0.0;     <br>
+    for(i=1; i &lt;= 10; ++i)     <br>
+   {     <br>
+        printf(&quot;Enter a n%d: &quot;,i);     <br>
+        scanf(&quot;%lf&quot;,&amp;number);     <br>
+        // If user enters negative number, loop is terminated     <br>
+        if(number &lt; 0.0)     <br>
+        {     <br>
+            break;     <br>
+        }     <br>
+
+        sum += number; // sum = sum + number;     <br>
+    }     <br>
+    printf(&quot;Sum = %.2lf&quot;,sum);         <br>
+    return 0;     <br>
+  }
+  </p>
+  <p><strong>Output</strong></p>
+  <p class="example">
+   Enter a n1: 2.4     <br>
+   Enter a n2: 4.5     <br>
+   Enter a n3: 3.4     <br>
+   Enter a n4: -3     <br>
+   Sum = 10.30
+  </p>
+  <p>This program calculates the sum of maximum of 10 numbers. Why maximum of 10 numbers? It&#39;s because if the user enters negative number, the break statement is executed which terminates the <var>for</var> loop, and <var>sum</var> is displayed.</p>
+  <p>In C, <var>break</var> is also used with <a href="b5.html">switch statement</a>.</p>
+  <hr>
+  <h2 id="2">continue Statement</h2>
+  <p>The continue statement skips statements after it inside the loop. Its syntax is:</p>
+  <p class="example">
+  continue;
+  </p>
+  <p>The continue statement is almost always used with <var>if...else</var> statement.</p>
+  <hr>
+  <h3 id="2a">How continue statement works?</h3>
+  <p><img src="../images/conwor.jpg" alt="Working of continue statement in C programming"></p>
+  <hr>
+  <h3 id="2b">Example 2: continue statement</h3>
+  <p class="example">
+  // Program to calculate sum of maximum of 10 numbers    <br>
+  // Negative numbers are skipped from calculation    <br>
+  # include &lt;stdio.h&gt;    <br>
+    int main()    <br>
+  {    <br>
+    int i;    <br>
+    double number, sum = 0.0;    <br>
+    for(i=1; i &lt;= 10; ++i)    <br>
+    {    <br>
+        printf(&quot;Enter a n%d: &quot;,i);    <br>
+        scanf(&quot;%lf&quot;,&amp;number);    <br>
+        if(number &lt; 0.0)    <br>
+        {    <br>
+            continue;    <br>
+        }    <br>
+        sum += number; // sum = sum + number;    <br>
+    }    <br>
+    printf(&quot;Sum = %.2lf&quot;,sum);    <br>    
+    return 0;    <br>
+  }
+  </p>
+  <p><strong>Output</strong></p>
+  <p class="example">
+  Enter a n1: 1.1     <br>
+  Enter a n2: 2.2    <br>
+  Enter a n3: 5.5    <br>
+  Enter a n4: 4.4    <br>
+  Enter a n5: -3.4    <br>
+  Enter a n6: -45.5    <br>
+  Enter a n7: 34.5    <br>
+  Enter a n8: -4.2    <br>
+  Enter a n9: -1000    <br>
+  Enter a n10: 12    <br>
+  Sum = 59.70    
+  </p>
+  <p>In the program, when the user enters positive number, the sum is calculated using <var>sum += number;</var> statement.</p>
+  <p>When the user enters negative number, the <var>continue</var> statement is executed and skips the negative number from calculation.</p>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Arrays</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Programming Arrays</h1>
+  <hr>
+  <p>In this article, you will learn to work with arrays. You will learn to declare, initialize and, access array elements with the help of examples.</p>
+  <hr>
+  <h3>Table of Contents</h3>
+  <ul>
+	<li><a href="#1">C Arrays</a></li>
+	<li><a href="#2">How to declare arrays?</a></li>
+	<li><a href="#3">How to access array elements?</a></li>
+	<li><a href="#4">How to initialize an array?</a></li>
+	<li><a href="#5">How to insert elements to an array?</a></li>
+        <li><a href="#6">Example: Arrays</a></li>
+	<li><a href="#7">Be careful while using arrays in C</a></li>
+	
+  </ul>
+  <p><img src="../images/carrays.jpg" alt="C Arrays" style="max-width:50%"></p>
+  <p id="1">An array is a collection of a fixed number of values of a single type. For example: if you want to store 100 integers in sequence, you can create an array for it.</p>
+  <p class="example">int data[100];</p>
+  <p>The size and type of arrays cannot be changed after its declaration.</p>
+  <p>Arrays are of two types:</p>
+  <ol>
+     <li>One-dimensional arrays</li>
+     <li><a href="d2.html">Multidimensional arrays (will be discussed in next chapter)</a></li>
+  </ol>
+  <h2 id="2">How to declare arrays?</h2>
+  <p class="example">data_type array_name[array_size];</p>
+  <h4>For example,</h4>
+  <p class="example">float mark[5];</p>
+  <p>Here, we declared an array, <var>mark</var>, of floating-point type and size 5. Meaning, it can hold 5 floating-point values.</p>
+  <hr>
+  <h2 id="3">Elements of an Array and How to access them?</h2>
+  <p>You can access elements of an array by indices.<br>Suppose you declared an array <var>mark</var> as above. The first element is <var>mark[0]</var>, second element is <var>mark[1]</var> and so on.</p>
+  <p><img src="../images/arrdec.jpg" alt="C Arrays Declaration" style="max-width:50%"></p>
+  <h3>Few key notes:</h3>
+  <ul>
+    <li>Arrays have 0 as the first index not 1. In this example, <var>mark[0]</var></li>
+    <li>If the size of an array is <var>n</var>, to access the last element, <var>(n-1)</var> index is used. In this example, <var>mark[4]</var></li>
+    <li>Suppose the starting address of <var>mark[0]</var> is 2120d. Then, the next address, <var>a[1]</var>, will be 2124d, address of <var>a[2]</var> will be 2128d and so on. It&#39;s because the size of a float is 4 bytes.</li>
+  </ul>
+  <hr>
+  <h3 id="4">How to initialize an array?</h3>
+  <p>It&#39;s possible to initialize an array during declaration. For example,</p>
+  <p class="example">int mark[5] = {19, 10, 8, 17, 9};</p>
+  <p>Another method to initialize array during declaration:</p>
+  <p class="example">int mark[] = {19, 10, 8, 17, 9};</p>
+  <p><br><img alt="Initialize an array in C programming" src="../images/inarr.jpg" style="max-width:50%"></p>
+  <p>Here,</p>
+  <p class="example">
+  mark[0] is equal to 19     <br>
+  mark[1] is equal to 10     <br>
+  mark[2] is equal to 8     <br>
+  mark[3] is equal to 17     <br>
+  mark[4] is equal to 9
+  </p>
+  <hr>
+  <h3 id="5">How to insert and print array elements?</h3>
+  <p class="example">
+   int mark[5] = {19, 10, 8, 17, 9}     <br>
+   // insert different value to third element     <br>
+   mark[3] = 9;     <br>
+   // take input from the user and insert in third element     <br>
+​   scanf(&quot;%d&quot;, &amp;mark[2]);     <br>
+   // take input from the user and insert in (i+1)th element     <br>
+   scanf(&quot;%d&quot;, &amp;mark[i]);     <br>
+   // print first element of an array     <br>
+   printf(&quot;%d&quot;, mark[0]);     <br>
+   // print ith element of an array     <br>
+   printf(&quot;%d&quot;, mark[i-1]);
+  </p>
+  <hr>
+  <h2 id="6">Example: C Arrays</h2>
+  <p class="example">
+  // Program to find the average of n (n &lt; 10) numbers using arrays     <br>
+  #include &lt;stdio.h&gt;     <br>
+  int main()     <br>
+  {     <br>
+     int marks[10], i, n, sum = 0, average;     <br>
+     printf(&quot;Enter n: &quot;);     <br>
+     scanf(&quot;%d&quot;, &amp;n);     <br>
+     for(i=0; i&lt;n; ++i)     <br>
+     {     <br>
+          printf(&quot;Enter number%d: &quot;,i+1);     <br>
+          scanf(&quot;%d&quot;, &amp;marks[i]);     <br>
+          sum += marks[i];     <br>
+     }     <br>
+     average = sum/n;     <br>
+     printf(&quot;Average = %d&quot;, average);     <br>
+     return 0;     <br>
+  }
+  </p>
+  <p><strong>Output</strong></p>
+  <p class="example">
+  Enter n: 5     <br>
+  Enter number1: 45     <br>
+  Enter number2: 35     <br>
+  Enter number3: 38     <br>
+  Enter number4: 31     <br>
+  Enter number5: 49     <br>
+  Average = 39
+  </p>
+  <hr>
+  <h3 id="7">Important thing to remember when working with C arrays</h3>
+  <p>Suppose you declared an array of 10 elements. Let&#39;s say,</p>
+  <p class="example">int testArray[10];</p>
+  <p>You can use the array members from <var>testArray[0]</var> to <var>testArray[9]</var>.</p>
+  <p>If you try to access array elements outside of its bound, let&#39;s say <var>testArray[12]</var>, the compiler may not show any error. However, this may cause unexpected output (undefined behavior).</p>
+  <hr>
+  

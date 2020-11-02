@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Dynamic Memory Allocation</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Dynamic Memory Allocation</h1>
+  <hr>
+<p>In this article, you'll learn to dynamically allocate memory in your C program using standard library functions: malloc(), calloc(), free() and realloc()</p>
+  <hr>
+  <h3>Table of Contents</h3>
+  <ul>
+	<li><a href="#1">Why dynamic memory allocation?</a></li>
+	<li><a href="#2">malloc()</a></li>
+	<li><a href="#3">calloc()</a></li>
+	<li><a href="#4">free()</a></li>
+	<li><a href="#5">Example: malloc() and free()</a></li>
+	<li><a href="#6">Example: calloc() and free()</a></li>
+	<li><a href="#7">realloc()</a></li>
+	<li><a href="#8">Example: realloc()</a></li>
+  </ul>
+  <p id="1">An array is a collection of fixed number of values of a single type.&nbsp;That is, you need to declare the size of an array before you can use it.</p>
+  <p>Sometimes, the size of array you declared may be insufficient. To solve this issue, you can allocate memory manually during run-time. This is known as dynamic memory allocation in C programming.</p>
+  <p>There are 4 library functions defined under <var>&lt;stdlib.h&gt;</var> makes&nbsp;dynamic memory allocation in C programming. They are <var>malloc()</var>, <var>calloc()</var>, <var>realloc()</var> and <var>free()</var>.</p>
+  <hr>
+  <h2 id="2">C malloc()</h2>
+  <p>The name &quot;malloc&quot; stands for memory allocation.</p>
+  <p>The <var>malloc()</var> function reserves a block of memory of the specified number of bytes. And, it returns a pointer of type <var>void</var> which can be casted into pointer of any form.</p>
+  <hr>
+  <h3>Syntax of malloc()</h3>
+  <p class="example">ptr = (cast-type*) malloc(byte-size)</p>
+  <p><strong>Example:</strong></p>
+  <p class="example">ptr = (int*) malloc(100 * sizeof(int));</p>
+  <p>Considering the size of <var>int</var> is 4 bytes, this statement allocates 400 bytes of memory. And, the pointer <var>ptr</var> holds the address of the first byte in the allocated memory.</p>
+  <p>However, if the space is insufficient, allocation fails and returns a NULL pointer.</p>
+  <hr>
+  <h2 id="3">C calloc()</h2>
+  <p>The name &quot;calloc&quot; stands for contiguous allocation.</p>
+  <p>The <var>malloc()</var> function allocates a single block of memory. Whereas, <var>calloc()</var> allocates multiple blocks of memory and initializes them to zero.</p>
+  <hr>
+  <h3>Syntax of calloc()</h3>
+  <p class="example">ptr = (cast-type*)calloc(n, element-size);</p>
+  <p><strong>Example:rong></p>
+  <p class="example">ptr = (float*) calloc(25, sizeof(float));</p>
+  <p>This statement allocates contiguous space in memory for 25 elements each with the size of <var>float</var>.</p>
+  <hr>
+  <h2 id="4">C free()</h2>
+  <p>Dynamically allocated memory created with either <var>calloc()</var> or <var>malloc()</var> doesn&#39;t get freed on their own. You must explicitly use <var>free()</var> to release the space.</p>
+  <hr>
+  <h3>Syntax of free()</h3>
+  <p class="example">free(ptr);</p>
+  <p>This statement frees the space allocated in the memory pointed by <var>ptr</var>.</p>
+  <hr>
+  <h3 id="5">Example 1: malloc() and free()</h3>
+  <p>This program calculates the sum of <var>n</var> numbers entered by the user. To perform this task, memory is dynamically allocated using <var>malloc()</var>, and memory is freed using <var>free()</var> function.</p>
+  <p class="example">
+  #include &lt;stdio.h&gt;       <br>
+  #include &lt;stdlib.h&gt;       <br>
+  int main()       <br>
+  {       <br>
+    int n, i, *ptr, sum = 0;       <br>
+    printf(&quot;Enter number of elements: &quot;);       <br>
+    scanf(&quot;%d&quot;, &amp;n);       <br>
+    ptr = (int*) malloc(n * sizeof(int));       <br>
+    if(ptr == NULL)                            <br>
+    {       <br>
+        printf(&quot;Error! memory not allocated.&quot;);       <br>
+        exit(0);       <br>
+    }       <br>
+    printf(&quot;Enter elements: &quot;);       <br>
+    for(i = 0; i &lt; n; ++i)       <br>
+    {       <br>
+        scanf(&quot;%d&quot;, ptr + i);       <br>
+        sum += *(ptr + i);       <br>
+    }       <br>
+    printf(&quot;Sum = %d&quot;, sum);       <br>
+    free(ptr);       <br>
+    return 0;       <br>
+  }
+  </p>
+  <hr>
+  <h3 id="6">Example 2: calloc() and free()</h3>
+  <p>This program calculates the sum of <var>n</var> numbers entered by the user. To perform this task, <var>calloc()</var> and <var>free()</var> is used.</p>
+  <p class="example">
+  #include &lt;stdio.h&gt;       <br>
+  #include &lt;stdlib.h&gt;       <br>
+  int main()       <br>
+  {       <br>
+    int n, i, *ptr, sum = 0;       <br>
+    printf(&quot;Enter number of elements: &quot;);       <br>
+    scanf(&quot;%d&quot;, &amp;n);       <br>
+    ptr = (int*) calloc(n, sizeof(int));       <br>
+    if(ptr == NULL)       <br>
+    {       <br>
+        printf(&quot;Error! memory not allocated.&quot;);       <br>
+        exit(0);       <br>
+    }       <br>
+    printf(&quot;Enter elements: &quot;);       <br>
+    for(i = 0; i &lt; n; ++i)       <br>
+    {       <br>
+        scanf(&quot;%d&quot;, ptr + i);       <br>
+        sum += *(ptr + i);       <br>
+    }       <br>
+    printf(&quot;Sum = %d&quot;, sum);       <br>
+    free(ptr);       <br>
+    return 0;       <br>
+  }
+  </p>
+  <hr>
+  <h2 id="7">C realloc()</h2>
+  <p>If the dynamically allocated memory is insufficient or more than required, you can change the size of previously allocated memory using <var>realloc()</var> function</p>
+  <hr>
+  <h3>Syntax of realloc()</h3>
+  <p class="example">ptr = realloc(ptr, x);</p>
+  <p>Here, <var>ptr</var> is reallocated with new size <var>x</var>.</p>
+  <hr>
+  <h3 id="8">Example 3: realloc()</h3>
+  <p class="example">
+   #include &lt;stdio.h&gt;       <br>
+   #include &lt;stdlib.h&gt;       <br>
+   int main()       <br>
+  {       <br>
+    int *ptr, i , n1, n2;       <br>
+    printf(&quot;Enter size of array: &quot;);       <br>
+    scanf(&quot;%d&quot;, &amp;n1);       <br>
+    ptr = (int*) malloc(n1 * sizeof(int));       <br>
+    printf(&quot;Addresses of previously allocated memory: &quot;);       <br>
+    for(i = 0; i &lt; n1; ++i)       <br>
+         printf(&quot;%u\n&quot;,ptr + i);       <br>
+    printf(&quot;\nEnter new size of array: &quot;);       <br>
+    scanf(&quot;%d&quot;, &amp;n2);       <br>
+    ptr = realloc(ptr, n2 * sizeof(int));       <br>
+    printf(&quot;Addresses of newly allocated memory: &quot;);       <br>
+    for(i = 0; i &lt; n2; ++i)       <br>
+         printf(&quot;%u\n&quot;, ptr + i);       <br>
+    return 0;       <br>
+  }
+  </p>
+  <p>When you run the program, the output will be:</p>
+  <p class="example">
+  Enter size of array: 2       <br>
+  Addresses of previously allocated memory:26855472       <br>
+  26855476       <br>
+  Enter new size of array: 4       <br>
+  Addresses of newly allocated memory:26855472       <br>
+  26855476       <br>
+  26855480       <br>
+  26855484       <br>
+  </p>
+  <hr>
+</body>
+</html>

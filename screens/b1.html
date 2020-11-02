@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C if...else Statement</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C if...else Statement</h1>
+  <hr>
+  <p>In programming, decision making is used to specify the order in which statements are executed. In this tutorial, you will learn to write if...else statements to make decisions in your program.</p>
+  <hr>
+  <h2>Table of Contents</h2>
+  <ul>
+	<li><a href="#1">if Statement</a>
+		<ul>
+			<li><a href="#1a">Example: if Statement</a></li>
+		</ul>
+	</li>
+	<li><a href="#2">if...else Statement</a>
+		<ul>
+			<li><a href="#2a">Example: if...else Statement</a></li>
+		</ul>
+	</li>
+	<li><a href="#3">if...else Ladder</a>
+		<ul>
+			<li><a href="#3a">Example: if...else Ladder</a></li>
+		</ul>
+	</li>
+	<li><a href="#4">Nested if...else</a>
+		<ul>
+			<li><a href="#4a">Example: Nested if...else</a></li>
+		</ul>
+	</li>
+  </ul>
+  <h2 id="1">C if statement</h2>
+  <p>The syntax of <var>if</var> statement is:</p>
+  <p class="example">
+    
+     if (testexpression) <br>
+     {               <br>
+      // statement(s)  <br>
+     }             
+    
+  </p>
+  <hr>
+  <h3>How if statement works?</h3>
+  <p>The <var>if</var> statement evaluates the test expression inside the parenthesis.</p>
+  <ul>
+	<li>If the test expression is evaluated to true (nonzero), statement(s) inside the body of <var>if</var> is executed.</li>
+	<li>If the test expression is evaluated to false (0), statement(s) inside the body of <var>if</var> is skipped from execution.</li>
+  </ul>
+  <img src="../images/if_else.jpg" alt="if in c" style="width:70%"> 
+  <hr>
+  <h3 id="1a">Example 1: if statement</h3>
+  <p class="example">
+    // Program to display a number if user enters negative number <br>
+    #include &lt;stdio.h&gt;  <br>
+    int main()  <br>
+  {  <br>
+    int number;  <br>
+    printf(&quot;enter an integer: &quot;);   <br>
+    scanf(&quot;%d&quot;, &amp;number);      <br>
+    // test expression is true if number is less than 0<br>
+    if (number &lt; 0)<br>
+    {<br>
+        printf(&quot;you entered %d.\n&quot;, number);<br>
+    }<br>
+    printf(&quot;the if statement is easy.&quot;);<br>
+    return 0;<br>
+   }
+  </p>
+  <p><strong>Output 1</strong></p>
+  <p class="example">
+    Enter an integer: -2 <br>
+    You entered -2. <br>
+    The if statement is easy.</p>
+  <p>When user enters -2, the test expression <var>(number &lt; 0)</var>&nbsp;is evaluated to true. Hence, <var>You entered -2</var> is displayed on the screen.</p>
+  <p><strong>Output 2</strong></p>
+  <p class="example">
+   Enter an integer: 5     <br>
+   The if statement is easy.
+  </p>
+  <p>When user enters 5, the test expression <var>(number &lt; 0)</var>&nbsp;is&nbsp;evaluated to false and the statement inside the body of <var>if</var> is skipped.</p>
+  <hr>
+  <h2 id="2">C if...else statement</h2>
+  <p>The <var>if</var> statement may have an optional <var>else</var> block. The syntax of <var>if..else</var> statement is:</p>
+  <p class="example">
+  if (testExpression)     <br>
+  {     <br>
+    // statement(s) inside the body of if     <br>
+  }     <br>
+  else     <br>
+  {     <br>
+    // statement(s) inside the body of else     <br>
+  }     
+  </p>
+  <hr>
+  <h3>How if...else statement works?</h3>
+  <p>If test expression is evaluated to true,</p>
+  <ul>
+	<li>statement(s)&nbsp;inside the body of <var>if</var> statement is executed</li>
+	<li>statement(s) inside the body of <var>else</var> statement is skipped from execution.</li>
+  </ul>
+  <p>If test expression is evaluated to false,</p>
+  <ul>
+	<li>statement(s)&nbsp;inside the body of <var>else</var> statement is executed</li>
+	<li>statement(s)&nbsp;inside the body of <var>if</var> statement is skipped.</li>
+  </ul>
+
+  <p><img src="../images/ifelse.jpg"  alt="if-else in c" style="width:70%" ></p>
+  <hr>
+  <h3 id="2a">Example 2: if...else statement</h3>
+  <p class="example">
+   // Program to check whether an integer entered by the user is odd or even     <br>
+   #include &lt;stdio.h&gt;     <br>
+   int main()     <br>
+   {     <br>
+    int number;     <br>
+    printf(&quot;Enter an integer: &quot;);     <br>
+    scanf(&quot;%d&quot;,&amp;number);     <br>
+    // True if remainder is 0     <br>
+    if( number%2 == 0 )     <br>
+        printf(&quot;%d is an even integer.&quot;,number);     <br>
+    else     <br>
+        printf(&quot;%d is an odd integer.&quot;,number);     <br>
+    return 0;     <br>
+   }
+  </p>
+  <p><strong>Output</strong></p>
+  <p class="example">
+  Enter an integer: 7 <br>
+  7 is an odd integer.
+  </p>  
+  <p>When user enters 7, the test expression <var>( number%2 == 0 )</var> is evaluated to false. Hence, the statement inside the body of <var>else</var> statement <var>printf(&quot;%d is an odd integer&quot;);</var> is executed and the statement inside the body of <var>if</var> is skipped.</p>
+  <hr>
+  
+
+
+
+  <h2 id="3">if...else Ladder&nbsp;(if...else if....else Statement)</h2>
+  <p>The <var>if...else</var> statement executes two different vars depending upon whether the test expression is true or false. Sometimes, a choice has to be made from more than 2 possibilities.</p>
+  <p>The if...else ladder&nbsp;allows you to check for multiple test expressions and execute different statement(s).</p>
+  <hr>
+  <h3>Syntax of nested if...else statement.</h3>
+  <p class="example">
+   if (testExpression1)    <br>
+  {    <br>
+   // statement(s)    <br>
+  }    <br>
+  else if(testExpression2)    <br> 
+  {    <br>
+   // statement(s)    <br>
+  }    <br>
+  else if (testExpression 3)     <br>
+  {    <br>
+   // statement(s)    <br>
+  }    <br>
+  .    <br>
+  .    <br>
+  else     <br>
+  {    <br>
+   // statement(s)       <br>
+  }
+  </p>
+  <hr>
+  <h3 id="3a">Example 3: C if...else Ladder</h3>
+  <p class="example">
+  // Program to relate two integers using =, &gt; or &lt;   <br>
+  #include &lt;stdio.h&gt;   <br>
+  int main()   <br>
+  {   <br>
+    int number1, number2;   <br>
+    printf(&quot;Enter two integers: &quot;);   <br>
+    scanf(&quot;%d %d&quot;, &amp;number1, &amp;number2);   <br>
+    //checks if two integers are equal.   <br>
+    if(number1 == number2)   <br>
+  {   <br>
+    printf(&quot;Result: %d = %d&quot;,number1,number2);   <br>
+  }   <br>
+    //checks if number1 is greater than number2.   <br>
+    else if (number1 &gt; number2)   <br>
+  {   <br>
+    printf(&quot;Result: %d &gt; %d&quot;, number1, number2);   <br>
+  }   <br>
+    // if both test expression is false   <br>
+    else   <br>
+  {   <br>
+    printf(&quot;Result: %d &lt; %d&quot;,number1, number2);   <br>
+  }   <br>
+    return 0;   <br>
+  }   
+  </p>
+  <p><strong>Output</strong></p>
+  <p>
+  Enter two integers: 12   <br>
+  23   <br>
+  Result: 12 &lt; 23
+  </p>
+  <hr>
+  <h2 id="4">Nested if...else</h2>
+  <p>It is possible to include <var>if...else</var> statement(s) inside the body of another <var>if...else</var> statement.</p>
+  <p>This program below relates two integers using either <var>&lt;</var>, <var>&gt;</var> and <var>=</var> similar like in <var>if...else</var> ladder example. However, we will use nested <var>if...else</var> statement to solve this problem.</p>
+  <hr>
+  <h3 id="4a">Example 4: Nested if...else</h3>
+  <p class="example"> 
+  #include &lt;stdio.h&gt;  <br>
+  int main()  <br>
+  {  <br>
+    int number1, number2;  <br>
+    printf(&quot;Enter two integers: &quot;);  <br>
+    scanf(&quot;%d %d&quot;, &amp;number1, &amp;number2);  <br>
+    if (number1 &gt;= number2)  <br>
+    {  <br>
+      if (number1 == number2)   <br>
+      {  <br>
+        printf(&quot;Result: %d = %d&quot;,number1,number2);  <br>
+      }  <br>
+      else   <br>
+      {  <br>
+        printf(&quot;Result: %d &gt; %d&quot;, number1, number2);  <br>
+      }  <br>
+    }  <br>
+    else  <br>
+    {  <br>
+        printf(&quot;Result: %d &lt; %d&quot;,number1, number2);  <br>
+    }  <br>
+    return 0;  <br>
+  }
+  </p>
+  <hr>
+  <p>If the body of <var>if...else</var> statement has only one statement, you do not need to use&nbsp;parenthesis <var>{ }</var>.</p>
+  <p>This code</p>
+  <p class="example">
+  if (a &gt; b)  <br>
+  {  <br>
+    printf(&quot;Hello&quot;);  <br>
+  }  <br>
+  printf(&quot;Hi&quot;);
+  </p>
+  <p>is equivalent to</p>
+  <p class="example">
+  if (a &gt; b)  <br>
+    printf(&quot;Hello&quot;);  <br>
+  printf(&quot;Hi&quot;);
+  </p>
+  <hr>

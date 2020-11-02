@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Call by Reference: Using pointers</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Call by Reference: Using pointers</h1> 
+  <hr>
+  <p>In this article, you'll learn to pass address as an argument to the function with the help of an example.</p>
+  <hr>
+  <p>You can not only pass variables/values to a function, but&nbsp;you can also pass addresses to a function. After all, address is also some kind of a value.</p>
+  <p>Since pointer store address, you can use pointer to accept that address in the function definition. Let&#39;s take an example:</p>
+  <h3>Example: Passing address to a Function</h3>
+  <p class="example"> 
+   #include &lt;stdio.h&gt;      <br>
+   void swap(int *n1, int *n2);      <br>
+   int main()      <br>
+   {      <br>
+    int num1 = 5, num2 = 10;      <br>
+    // address of num1 and num2 is passed      <br>
+    swap( &amp;num1, &amp;num2);      <br>
+    printf(&quot;num1 = %d\n&quot;, num1);      <br>
+    printf(&quot;num2 = %d&quot;, num2);      <br>
+    return 0;      <br>
+   }      <br>
+    // pointer n1 and n2 stores the address of num1 and num2 respectively      <br>
+    void swap(int* n1, int* n2)      <br>
+   {      <br>
+    int temp;      <br>
+    temp = *n1;      <br>
+    *n1 = *n2;      <br>
+    *n2 = temp;      <br>
+   }
+  </p>
+  <p>When you run the program, the output will be:</p>
+  <p class="example">
+   num1 = 10      <br>
+   num2 = 5
+  </p>
+  <p>The address of <var>num1</var> and <var>num2</var> are passed to the <var>swap()</var> function using <var>swap(&amp;num1, &amp;num2);</var>. Pointers <var>n1</var> and <var>n2</var> stores them.</p>
+  <p>When the value at the addresses <var>n1</var> and <var>n2</var> are changed, <var>num1</var> and <var>num2</var> are also changed respectively. That is, if <var>*n1</var> and <var>*n2</var> are changed inside the <var>swap()</var> function, <var>num1</var> and <var>num2</var> are also changed inside the <var>main()</var> function.</p>
+  <p>Inside the <var>swap()</var> function, <var>*n1</var> and <var>*n2</var> swapped. Hence, value stored in <var>num1</var> and <var>num2</var> are also swapped.</p>
+  <p>Notice that, <var>swap()</var> is not returning anything; it&#39;s return type is <var>void</var>.</p>
+  <p>This technique is known as call by reference in C programming. It&#39;s because addresses are passed to the function instead of the actual value.</p>
+  </body>
+</html>

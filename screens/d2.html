@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Multidimensional Arrays</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Programming Multidimensional Arrays</h1>
+  <hr>
+  <p>In this article, you will learn to work with multidimensional arrays (two dimensional and three dimensional array).</p>
+  <hr>
+  <h3>Table of Contents</h3><ul>
+	<li><a href="#1">Multidimensional array</a></li>
+	<li><a href="#2">How to initialize a multidimensional array?</a>
+		<ul>
+			<li><a href="#2a">2d array</a></li>
+			<li><a href="#2b">3d array</a></li>
+		</ul>
+	</li>
+	<li><a href="#3">Example 1: 2d array to store and print values</a></li>
+	<li><a href="#4">Example 2: Sum of two matrices</a></li>
+	<li><a href="#5">Example 3: Three Dimensional Array</a></li>
+  </ul>
+  <p id="1">In C programming, you can create array of an array known as multidimensional array. For example,</p>
+  <p class="example">float x[3][4];</p>
+  <p>Here, <var>x</var> is a two-dimensional (2d) array. The array can hold 12 elements. You can think the array as table with 3 row and each row has 4 column.</p>
+  <p><img alt="Two dimensional array in C programming" src="../images/arr2d.jpg" style="max-width:50%"></p>
+  <p>Similarly, you can declare a three-dimensional (3d) array. For example,</p>
+  <p class="example">float y[2][4][3];</p>
+  <p>Here,The array <var>y</var> can hold 24 elements.</p>
+  <p>You can think this example as: Each 2 elements have 4 elements, which makes 8 elements and each 8 elements can have 3 elements. Hence, the total number of elements is 24.</p>
+  <hr>
+  <h2 id="2" >How to initialize a multidimensional array?</h2>
+  <p>There is more than one way to initialize a multidimensional array.</p>
+  <hr>
+  <h3 id="2a">Initialization of a two dimensional array</h3>
+  <p class="example">
+  // Different ways to initialize two dimensional array       <br>
+  int c[2][3] = {{1, 3, 0}, {-1, 5, 9}};       <br>
+  int c[][3] = {{1, 3, 0}, {-1, 5, 9}};        <br>               
+  int c[2][3] = {1, 3, 0, -1, 5, 9};
+  </p>
+  <p>Above code are three different ways to initialize a two dimensional arrays.</p>
+  <hr>
+  <h3 id="2b">Initialization of a three dimensional array.</h3>
+  <p>You can initialize a three dimensional array in a similar way like a two dimensional array. Here&#39;s an example,</p>
+  <p class="example">
+  int test[2][3][4] = {<br> 
+  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{ {3, 4, 2, 3}, {0, -3, 9, 11}, {23, 12, 23, 2} },<br>
+  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{ {13, 4, 56, 3}, {5, 9, 3, 5}, {3, 1, 4, 9} }<br>
+  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;};</p>
+  <hr>
+  <h3 id="3">Example 1: Two Dimensional Array to store and print values</h3>
+  <p class="example">
+  // C program to store temperature of two cities for a week and display it.       <br>
+  #include &lt;stdio.h&gt;       <br>
+  const int CITY = 2;       <br>
+  const int WEEK = 7;       <br>
+  int main()       <br>
+  {       <br>
+    int temperature[CITY][WEEK];       <br>
+    for (int i = 0; i &lt; CITY; ++i)       <br>
+    {       <br>
+        for(int j = 0; j &lt; WEEK; ++j)       <br>
+        {       <br>
+            printf(&quot;City %d, Day %d: &quot;, i+1, j+1);       <br>
+            scanf(&quot;%d&quot;, &amp;temperature[i][j]);       <br>
+        }       <br>
+    }       <br>
+    printf(&quot;\nDisplaying values: \n\n&quot;);       <br>
+    for (int i = 0; i &lt; CITY; ++i)       <br>
+    {       <br>
+        for(int j = 0; j &lt; WEEK; ++j)       <br>
+        {       <br>
+            printf(&quot;City %d, Day %d = %d\n&quot;, i+1, j+1, temperature[i][j]);       <br>
+        }       <br>
+    }       <br>
+    return 0;       <br>
+  }
+  </p>
+  <p><strong>Output</strong></p>
+  <p class="example">
+  City 1, Day 1: 33       <br>
+  City 1, Day 2: 34       <br>
+  City 1, Day 3: 35       <br>
+  City 1, Day 4: 33       <br>
+  City 1, Day 5: 32       <br>
+  City 1, Day 6: 31       <br>
+  City 1, Day 7: 30       <br>
+  City 2, Day 1: 23       <br>
+  City 2, Day 2: 22       <br>
+  City 2, Day 3: 21       <br>
+  City 2, Day 4: 24       <br>
+  City 2, Day 5: 22       <br>
+  City 2, Day 6: 25       <br>
+  City 2, Day 7: 26       <br>
+  <br>
+  Displaying values:        <br>
+  City 1, Day 1 = 33       <br>
+  City 1, Day 2 = 34       <br>
+  City 1, Day 3 = 35       <br>
+  City 1, Day 4 = 33       <br>
+  City 1, Day 5 = 32       <br>
+  City 1, Day 6 = 31       <br>
+  City 1, Day 7 = 30       <br>
+  City 2, Day 1 = 23       <br>
+  City 2, Day 2 = 22       <br>
+  City 2, Day 3 = 21       <br>
+  City 2, Day 4 = 24       <br>
+  City 2, Day 5 = 22       <br>
+  City 2, Day 6 = 25       <br>
+  City 2, Day 7 = 26
+  </p>
+  <hr>
+  <h3 id="4">Example 2: Sum of two matrices using Two dimensional arrays</h3>
+  <p class="example">
+  // C program to find the sum of two matrices of order 2*2       <br>
+  #include &lt;stdio.h&gt;       <br>
+  int main()       <br>
+  {       <br>
+   float a[2][2], b[2][2], c[2][2];       <br>
+   int i, j;       <br>
+   // Taking input using nested for loop       <br>
+   printf(&quot;Enter elements of 1st matrix\n&quot;);       <br>
+   for(i=0; i&lt;2; ++i)       <br>
+    for(j=0; j&lt;2; ++j)       <br>
+    {       <br>
+       printf(&quot;Enter a%d%d: &quot;, i+1, j+1);       <br>
+       scanf(&quot;%f&quot;, &amp;a[i][j]);       <br>
+    }       <br>
+   // Taking input using nested for loop       <br>
+   printf(&quot;Enter elements of 2nd matrix\n&quot;);       <br>
+   for(i=0; i&lt;2; ++i)       <br>
+    for(j=0; j&lt;2; ++j)       <br>
+    {       <br>
+       printf(&quot;Enter b%d%d: &quot;, i+1, j+1);       <br>
+       scanf(&quot;%f&quot;, &amp;b[i][j]);       <br>
+    }       <br>
+   // adding corresponding elements of two arrays       <br>
+   for(i=0; i&lt;2; ++i)       <br>
+    for(j=0; j&lt;2; ++j)       <br>
+    {       <br>
+       c[i][j] = a[i][j] + b[i][j];        <br>
+    }       <br>
+   // Displaying the sum       <br>
+   printf(&quot;\nSum Of Matrix:&quot;);       <br>
+   for(i=0; i&lt;2; ++i)       <br>
+    for(j=0; j&lt;2; ++j)       <br>
+    {       <br>
+       printf(&quot;%.1f\t&quot;, c[i][j]);                <br>
+       if(j==1)                   <br>
+          printf(&quot;\n&quot;);       <br>
+    }       <br>
+    return 0;       <br>
+  }
+  </p>
+  <p><strong>Ouput</strong></p>
+  <p class="example">
+   Enter elements of 1st matrix       <br>
+   Enter a11: 2;       <br>
+   Enter a12: 0.5;       <br>
+   Enter a21: -1.1;       <br>
+   Enter a22: 2;       <br>
+   Enter elements of 2nd matrix       <br>
+   Enter b11: 0.2;       <br>
+   Enter b12: 0;       <br>
+   Enter b21: 0.23;       <br>
+   Enter b22: 23;       <br>
+           <br>
+   Sum Of Matrix:       <br>
+   2.2     0.5       <br>
+  -0.9    25.0
+   </p>
+  <hr>
+  <h3 id="5">Example 3: Three Dimensional Array</h3>
+  <p class="example">
+  // C Program to store and print 12 values entered by the user       <br>
+  #include &lt;stdio.h&gt;       <br>
+  int main()       <br>
+  {       <br>
+    int i, j, k, test[2][3][2];       <br>
+    printf(&quot;Enter 12 values: \n&quot;);       <br>
+    for(i = 0; i &lt; 2; ++i)       <br>
+    {       <br>
+        for (j = 0; j &lt; 3; ++j)       <br>
+        {       <br>
+            for(k = 0; k &lt; 2; ++k )       <br>
+            {       <br>
+                scanf(&quot;%d&quot;, &amp;test[i][j][k]);       <br>
+            }       <br>
+        }       <br>
+    }       <br>
+    // Printing values with proper index.       <br>
+    printf(&quot;\nDisplaying values:\n&quot;);       <br>
+    for(i = 0; i &lt; 2; ++i)       <br>
+    {       <br>
+        for (j = 0; j &lt; 3; ++j)       <br>
+        {       <br>
+            for(k = 0; k &lt; 2; ++k )       <br>
+            {       <br>
+                printf(&quot;test[%d][%d][%d] = %d\n&quot;, i, j, k, test[i][j][k]);       <br>
+            }       <br>
+        }       <br>
+    }       <br>
+    return 0;       <br>
+   }
+   </p>
+  <p><b>Output</b></p>
+  <p class="example">
+  Enter 12 values:       <br> 
+  1       <br>
+  2       <br>
+  3       <br>
+  4       <br>
+  5       <br>
+  6       <br>
+  7       <br>
+  8       <br>
+  9       <br>
+  10       <br>
+  11       <br>
+  12       <br>
+       <br>
+  Displaying Values:       <br>
+  test[0][0][0] = 1       <br>
+  test[0][0][1] = 2       <br>       
+  test[0][1][0] = 3       <br> 
+  test[0][1][1] = 4       <br>
+  test[0][2][0] = 5       <br>
+  test[0][2][1] = 6       <br>
+  test[1][0][0] = 7       <br>
+  test[1][0][1] = 8       <br>
+  test[1][1][0] = 9       <br>  
+  test[1][1][1] = 10      <br>
+  test[1][2][0] = 11      <br>
+  test[1][2][1] = 12
+  </p>
+ </body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Strings</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Programming Strings</h1>
+  <hr>
+  <p>In this article, you'll learn to handle strings and its operations in C programming. You'll learn to declare them, initialize them and use them for various I/O operations.</p>
+  <hr>
+  <h3>Table of Contents</h3><ul>
+	<li><a href="#1">C strings</a></li>
+	<li><a href="#2">How to declare a string?</a></li>
+	<li><a href="#3">How to initialize strings?</a></li>
+	<li><a href="#4">Read string from the user</a>
+		<ul>
+			<li><a href="#4a">Example: scanf() to read string</a></li>
+			<li><a href="#4b">Example: gets() and puts()</a></li>
+		</ul>
+	</li>
+	<li><a href="#5">Passing strings to a function</a>
+		<ul>
+			<li><a href="#5a">Example: Passing strings to a function</a></li>
+		</ul>
+	</li>
+	<li><a href="#6">Strings and pointers</a>
+		<ul>
+			<li><a href="#6">Example: Strings and pointers</a></li>
+		</ul>
+	</li>
+  </ul>
+  <p id="1">In C programming, a string is an array of characters terminated with a null character <var>\0</var>. For example:</p>
+  <p class="example">&quot;c string&quot;</p>
+  <p>When compiler encounters a sequence of characters enclosed in the double quotation marks, it appends a null character <var>\0</var> at the end.</p>
+  <p><img alt="Memory diagram of strings in C programming" src="../images/memdia.jpg" style="max-width:50%"></p>
+  <hr>
+  <h2 id="2">How to declare a string?</h2>
+  <p>Before you can work with strings, you need to declare them first. Since string is an array of characters. You declare strings in a similar way like you do with arrays.</p>
+  <p>If you don&#39;t know what arrays are, we recommend you to check <a href="/c-programming/c-arrays" title="C arrays">C arrays</a>.</p>
+  <p>Here&#39;s how you declare a string:</p>
+  <p class="example">char s[5];</p>
+  <p><img alt="string declaration in C programming" src="../images/strdec.jpg" style="max-width:50%"></p>
+  <hr>
+  <h2 id="3">How to initialize strings?</h2>
+  <p>You can initialize strings in a number of ways.</p>
+  <p class="example">
+   char c[] = &quot;abcd&quot;;    <br>
+   char c[50] = &quot;abcd&quot;;   <br>
+   char c[] = {&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;\0&#39;};   <br>
+   char c[5] = {&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;\0&#39;};
+  </p>
+  <p><img alt="Initialization of strings in C programming" src="../images/strin.jpg" style="max-width:50%" /></p>
+  <hr>
+  <h2 id="4">Read String from the user</h2>
+  <p>You can use the <var>scanf()</var> function to read a string.</p>
+  <p>The <var>scanf()</var> function reads the sequence of characters until it encounters a whitespace(space, newline, tab etc.).</p>
+  <hr>
+  <h3 id="4a">Example 1: scanf() to read a string</h3>
+  <p class="example">
+  #include &lt;stdio.h&gt;    <br>
+  int main()    <br>
+  {    <br>
+    char name[20];    <br>
+    printf(&quot;Enter name: &quot;);    <br>
+    scanf(&quot;%s&quot;, name);    <br>
+    printf(&quot;Your name is %s.&quot;, name);    <br>
+    return 0;    <br>
+  }
+  </p>
+  <p><b>Output</b></p>
+  <p class="example">
+   Enter name: Dennis Ritchie      <br>
+   Your name is Dennis.</p>
+   <p>Even though <var>Dennis Ritchie</var> was entered in the above program, only <var>&quot;Ritchie&quot;</var> was stored in the <var>name</var> string. It&#39;s because there was a space after <var>Ritche</var>.</p>
+  <hr>
+  <h3>How to read a line of text?</h3>
+  <p>You can use <var>gets()</var> function to read a line of string. And, you can use <var>puts()</var> to display the string.</p>
+  <hr>
+  <h3 id="4b">Example 2: gets() and puts()</h3>
+  <p class="example">
+   #include &lt;stdio.h&gt;       <br>
+   int main()       <br>
+   {       <br>
+    char name[30];       <br>
+    printf(&quot;Enter name: &quot;);       <br>
+    gets(name);&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;// read string       <br>
+    printf(&quot;Name: &quot;);       <br>
+    puts(name);&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;// display string       <br>
+    return 0;       <br>
+   }
+  </p>
+  <p>When you run the program, the output will be:</p>
+  <p class="example">
+  Enter name: Tom Hanks      <br>
+  Name: Tom Hanks
+  </p>
+  <hr>
+  <h2 id="5">Passing Strings to Function</h2>
+  <hr>
+  <h3 id="5a">Example 3: Passing string to a Function</h3>
+  <p class="example">
+  #include &lt;stdio.h&gt;       <br>
+  void displayString(char str[]);       <br>
+  int main()       <br>
+  {       <br>
+    char str[50];       <br>
+    printf(&quot;Enter string: &quot;);       <br>
+    gets(str);                    <br>
+    displayString(str);&emsp;&emsp;&emsp;&emsp;// Passing string to a function.           <br>
+    return 0;       <br>
+  }       <br>
+  void displayString(char str[])       <br>
+  {       <br>
+    printf(&quot;String Output: &quot;);       <br>
+    puts(str);       <br>
+  }
+  </p>
+  <hr>
+  <h2><a id="pointers" name="pointers"></a>Strings and Pointers</h2>
+  <p>Similar like arrays, string names are &quot;decayed&quot; to pointers. Hence, you can use pointer with the same name as string to manipulate elements of the string. 
+  <hr>
+  <h3 id="6">Example 4: Strings and Pointers</h3>
+  <p class="example">
+   #include &lt;stdio.h&gt;       <br>
+   int main(void)       <br>
+  {       <br>
+   char name[] = &quot;Harry Potter&quot;;       <br>
+   printf(&quot;%c&quot;, *name);&emsp;&emsp;// Output: H       <br>
+   printf(&quot;%c&quot;, *(name+1));&emsp;&emsp;// Output: a       <br>
+   printf(&quot;%c&quot;, *(name+7));&emsp;&emsp;// Output: o       <br>
+   char *namePtr;       <br>
+   namePtr = name;       <br>
+   printf(&quot;%c&quot;, *namePtr); &emsp;&emsp;    // Output: H       <br>
+   printf(&quot;%c&quot;, *(namePtr+1));&emsp;&emsp;   // Output: a       <br>
+   printf(&quot;%c&quot;, *(namePtr+7));  &emsp;&emsp; // Output: o       <br>
+  }
+  </p>
+  <hr>
+

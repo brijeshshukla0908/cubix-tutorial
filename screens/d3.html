@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to pass arrays to a function in C Programming?</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>How to pass arrays to a function in C Programming?</h1>
+  <hr>
+  <p>In this article, you'll learn to arrays to a function in C programming. You'll learn to pass both one-dimensional and multi-dimensional arrays to a function.</p>
+  <hr>
+  <h3>Table of Contents</h3>
+  <ul>
+	<li><a href="#1">Passing One-dimensional Array</a>
+		<ul>
+			<li><a href="#1a">Example 1: Passing single element of an array</a></li>
+			<li><a href="#1b">Example 2: Passing an entire array</a></li>
+		</ul>
+	</li>
+	<li><a href="#2">Passing multidimensional array to a function</a>
+		<ul>
+			<li><a href="#2a">Example 3: Passing 2d array to a function</a></li>
+		</ul>
+	</li>
+  </ul>
+  <p>You can pass a single array element of an array or an entire <a href="d1.html">array</a>&nbsp;to a function.</p>
+  <hr>
+  <h2 id="1">Passing One-dimensional Array to a Function</h2>
+  <p>Passing a single element of an array to a function is similar to <a href="c1.html">passing variable to a function</a>.</p>
+  <hr>
+  <h3 id="1a">Example 1: Passing single element of an array to function</h3>
+  <p class="example">
+   #include &lt;stdio.h&gt;       <br>
+   void display(int age)       <br>
+   {       <br>
+    printf(&quot;%d&quot;, age);       <br>
+   }       <br>
+    int main()       <br>
+   {       <br>
+    int ageArray[] = {2, 3, 4};       <br>
+    display(ageArray[2]); //Passing array element ageArray[2]       <br>
+    return 0;       <br>
+   }
+  </p>
+  <p><strong>Output</strong></p>
+  <p class="example">4</p>
+  <hr>
+  <h3 id="1b">Example 2: Passing an entire array to a function</h3>
+  <p class="example">
+   // Program to calculate average by passing an array to a function       <br>
+   #include &lt;stdio.h&gt;       <br>
+   float average(float age[]);       <br>
+   int main()       <br>
+   {       <br>
+	float avg, age[] = {23.4, 55, 22.6, 3, 40.5, 18};       <br>
+	avg = average(age); // Only name of an array is passed as an argument       <br>
+	printf(&quot;Average age = %.2f&quot;, avg);       <br>
+	return 0;       <br>
+   }       <br>
+   float average(float age[])       <br>
+   {       <br>
+	int i;       <br>
+	float avg, sum = 0.0;       <br>
+	for (i = 0; i &lt; 6; ++i)       <br>
+        {       <br>
+		sum += age[i];       <br>
+	}       <br>
+	avg = (sum / 6);       <br>
+	return avg;       <br>
+   }
+   </p>
+   <p><strong>Output</strong></p>
+   <p class="example">Average age = 27.08</p>
+   <p>To pass an entire array to a function, only the name of the array is passed as an argument. However, notice the use of <var>[]</var> after argument name in <var>float average(float age[])</var>. This informs the compiler that you are passing a one-dimensional array to the function.</p>
+  <hr>
+  <h2 id="2">Passing Multi-dimensional Arrays to Function</h2>
+  <p>To pass multidimensional arrays to a function, only the name of the array is passed (similar to one dimensional array).</p>
+  <hr>
+  <h3 id="2a">Example 3: Passing two-dimensional array&nbsp;to a function</h3>
+  <p class="example">
+  #include &lt;stdio.h&gt;    <br>
+  void displayNumbers(int num[2][2]);       <br>
+  int main()       <br>
+  {       <br>
+    int num[2][2], i, j       <br>;
+    printf(&quot;Enter 4 numbers:\n&quot;);       <br>
+    for (i = 0; i &lt; 2; ++i)       <br>
+        for (j = 0; j &lt; 2; ++j)       <br>
+            scanf(&quot;%d&quot;, &amp;num[i][j]);       <br>
+    // passing multi-dimensional array to a function       <br>
+    displayNumbers(num);       <br>
+    return 0;       <br>
+  }       <br>
+  void displayNumbers(int num[2][2])       <br>
+  {       <br>
+    int i, j;       <br>
+    printf(&quot;Displaying:\n&quot;);       <br>
+    for (i = 0; i &lt; 2; ++i)       <br>
+        for (j = 0; j &lt; 2; ++j)       <br>
+            printf(&quot;%d\n&quot;, num[i][j]);       <br>
+  }   
+  </p>
+  <hr>
+ </body>
+</html>

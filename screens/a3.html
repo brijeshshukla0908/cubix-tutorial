@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Data Types</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Programming Data Types</h1>
+  <hr>
+  <p>In this tutorial, you will learn about data types and how to declare a variable in C programming. </p>
+  <hr>
+  <h2>Table of Contents</h2>
+  <ul>
+	<li><a href="#introduction">C data types</a></li>
+	<li><a href="#fundamental">Fundamental data types</a>
+		<ul>
+			<li><a href="#int">int</a></li>
+			<li><a href="#float-double">float and double</a></li>
+			<li><a href="#char">char</a></li>
+			<li><a href="#void">void</a></li>
+			<li><a href="#bool">bool</a></li>
+			<li><a href="#enum">enum</a></li>
+			<li><a href="#complex">Complex types</a></li>
+		</ul>
+	</li>
+	<li><a href="#short-long">short and long</a></li>
+	<li><a href="#signed-unsigned">signed and unsigned</a></li>
+	<li><a href="#derived-types">Derived types</a></li>
+  </ul>
+  <p id="introduction">In C programming, variables (memory location) should be declared before it can be used. Similarly, a function also needs to be declared before use.<br>Data types simply refers to the type and size of data associated with variables and functions.<br>Data type can be either fundamental (provided in C compiler), or derived (derived from fundamental data types).</p>
+  <hr>
+  <h2 id="fundamental">Fundamental data types</h2> 
+  <p>This section focuses on commonly used fundamental data types.</p>
+  <hr>
+  <ul>
+  <li><h3 id="int">int</h3>
+  <p>Integers are whole numbers that can have both zero, positive and negative values but no decimal values. Example: <var>0</var>, <var>-5</var>, <var>10</var><br>We can use int for declaring an integer variable.</p>
+  <p class="example">int id;</p>
+  <p>Here, id is a variable of type integer.<br>You can declare multiple variable at once in C programming. For example:</p>
+  <p class="example">int id,age;</p> 
+  <p>The size of <var>int</var> is 4 bytes (32 bits) in most compilers. Hence, it can take 2<sup>32</sup> distinct states: <var>-2<sup>31</sup>,-2<sup>31</sup>+1, ..., -1, 0, 1, 2, ..., 2<sup>31</sup>-2, 2<sup>31</sup>-1</var></p>
+  <p>, that is, from <var>-2147483648</var> to <var>2147483647</var>.</p></li>
+  <hr>
+  <li><h3 id="float-double">float and double</h3>
+  <p><var>float</var> and <var>double</var> are used to hold real numbers.</p>
+  <p class="example">
+  float salary;<br>
+  double price;
+  </p>
+  <p>In C, floating-point numbers can also be represented in exponential. For example:</p>
+  <p class="example">
+  float normalizationFactor = 22.442e2;</p>
+  <p><b>What's the difference between <var>float</var> and <var>double</var>?</b></p>
+  <p>The size of <var><small>float</small></var> (single precision float data type) is 4 bytes. And the size of <var><small>double</var></small> (double precision float data type) is 8 bytes.</p></li>
+  <hr>
+  <li><h3 id="char">char</h3>
+  <p>Keyword <var>char</var> is used for declaring character type variables. For example:</p>
+  <p class="example">
+  char test = 'h';</p>
+  <p>The size of character variable is 1 byte.</p></li>
+  <hr>
+  <li><h3 id="void">void</h3>
+  <p><var>void</var> is an incomplete type. It means "nothing" or "no type". You can think of void as <strong>absent</strong>.</p>
+  <p>For example, if a function is not returning anything, its return type should be <var>void</var>.</p>
+  <p>Note that, you cannot create variables of <var>void</var> type.</p></li>
+  <hr>
+  <li><h3 id="bool">bool</h3>
+  <p>Traditionally, there was no boolean type in C. However, C99 defines a standard boolean type under <var><sdbool.h></var> header file. A boolean type can take one of two values, either <var>true</var> or <var>false</var>. For example:</p>
+  <p class="example">
+  #include&lt;stdio.h&gt;<br>
+  #include&lt;stdbool.h&gt;<br>
+  int main()<br> 
+  {<br>
+   bool a = true;<br>
+   return 0;<br>
+  }
+  </p>
+  <hr>
+  <p><strong>If you are a programming newbie, we recommend you to skip the content below for now and go on to the next chapter.</strong></p>
+  <hr>
+  <li><h3 id="enum">enum</h3>
+  <p>You can create an enumerated type using <var>enum</var> keyword. An enumeration consists of integral constants. For example:</p>
+  <p class="example">
+  enum suit { club, diamonds, hearts, spades};</p>
+  <p>Here, a variable <var>suit</var> of <var>enum</var> type is defined.</li>
+  <hr>
+  <li><h3 id="complex">Complex types</h3>
+  <p>In ISO C99, support for the complex type was standardized.</p>
+  <p>If you include <var>complex.h</var> header file in your program, you can use <var>complex</var> as a keyword to create and work with complex numbers. For example:</p>
+  <p class="example">
+  #include&lt;stdio.h&gt;<br>     
+  #include&lt;complex.h&gt;<br>  
+  int main()<br> 
+  {<br>
+    int complex z = 2 + 1 * I;<br>
+  }
+  </p></li>
+  </ul>
+  <hr>
+  <h2 id="short-long">short and long</h2>
+  <p>If you need to use large number, you can use type specifier <var>long</var>. Here's how:</p>
+  <p class="example">
+  long a;<br>
+  long long b;<br>
+  long double c; 	
+  </p>
+  <p>Here variables <var>a</var> and <var>b</var> can store integer values. And, <var>c</var> can store a floating-point number.</p>
+  <p>If you are sure, only a small integer (<var>[&minus;32,767, +32,767]</var> range) will be used, you can use <var>short</var>.</p>
+  <p class="example">
+  short d;
+  </p>
+  <p>You can always check size of a variable using <var>sizeof()</var> operator.</p>
+  <p class="example">
+  #include&lt;stdio.h&gt;<br>     
+  int main()<br> 
+  {<br>
+  short a;<br>
+  long b;<br>
+  long long c;<br>
+  long double d;<br>
+  printf(&quot;size of short = %d bytes\n&quot;, sizeof(a));<br>
+  printf(&quot;size of long = %d bytes\n&quot;, sizeof(b));<br>
+  printf(&quot;size of long long = %d bytes\n&quot;, sizeof(c));<br>
+  printf(&quot;size of long double= %d bytes\n&quot;, sizeof(d));<br>
+  return 0;<br>
+  }
+  </p>
+  <hr>
+  <h2 id="signed-unsigned">signed and unsigned</h2>
+  <p>In C, <var>signed</var> and <var>unsigned</var> are type modifiers. You can alter the data storage of a data type by using them. For example:</p>
+  <p>
+  unsigned int x;<br>
+  int y;</p>
+  <p>Here, the variable <var>x</var> can hold only zero and positive values because we have used <var>unsigned</var> modifier.</p>
+  <p>Considering the size of <var>int</var> is 4 bytes, variable <var>y</var> can hold values from <var>-2<sup>31</sup></var> to <var>2<sup>31</sup>-1</var>, whereas variable <var>x</var> can hold values from <var>0</var> to <var>2<sup>32</sup>-1</var>.</p>
+  <hr>
+  <h2 id="derived-types">Derived types</h2>
+  <p>Here's a list of derived types in C. These topics will be discussed in their respective chapter.</p>
+  <ul>
+	<li><a href="#">Array type</a></li>
+	<li><a href="#">Pointer type</a></li>
+	<li><a href="#">Structure type</a></li>
+	<li><a href="#">Union type</a></li>
+	<li><a href="#">Function type</a></li>
+	<li><a href="#">Atomic type</a></li>
+  </ul>
+ </body>
+</html>

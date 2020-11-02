@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C switch...case Statement</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C switch...case Statement</h1>
+  <p>In this tutorial, you will learn to write a switch statement in C programming (with an example).</p>
+  <h3>Table of Contents</h3>
+  <ul>
+	<li><a href="#1">C switch statement</a></li>
+	<li><a href="#2">Syntax of switch</a></li>
+	<li><a href="#3">switch statement flowchart</a></li>
+	<li><a href="#4">Example: switch statement</a></li>
+  </ul>
+  <p id="1">The <var>if..else..if</var> ladder allows you to execute a block code among many alternatives. If you are checking on the value of a single variable in <var>if...else...if</var>, it is better to use <var>switch</var> statement.</p>
+  <p>The switch statement is often faster than nested <var>if...else</var> (not always). Also, the syntax of switch statement is cleaner and easy to understand.</p>
+  <hr>
+  <h2 id="2"></a>Syntax of switch...case</h2>
+  <p class="example">
+  switch (n)     <br>
+​  {     <br>
+    case constant1:     <br>
+        // code to be executed if n is equal to constant1;     <br>
+        break;     <br>
+    case constant2:     <br>
+        // code to be executed if n is equal to constant2;     <br>
+        break;     <br>
+        .     <br>
+        .     <br>
+        .     <br>
+    default:     <br>
+        // code to be executed if n doesn&#39;t match any constant     <br>
+  }
+  </p>
+  <p>When a case constant is found that matches the switch expression, control of the program passes to the block of code associated with that case.</p>
+  <p>Suppose, the value of <var>n</var> is equal to <var>constant2</var>. The compiler executes the statements after <var>case constant2:</var> until break is encountered. When break statement is encountered, switch statement terminates.</p>
+  <hr>
+  <h3 id="3">switch Statement Flowchart</h3>
+  <p><img src="../images/swflow.jpg" alt="Flowchart of switch statement"></p>
+  <hr>
+  <h3 id="4"></a>Example: switch Statement</h3>
+  <p class="example">
+    // Program to create a simple calculator     <br>
+    #include &lt;stdio.h&gt;     <br>
+    int main()     <br>
+  {     <br>
+    char operator;     <br>
+    double firstNumber,secondNumber;     <br>
+    printf(&quot;Enter an operator (+, -, *, /): &quot;);     <br>
+    scanf(&quot;%c&quot;, &amp;operator);     <br>
+    printf(&quot;Enter two operands: &quot;);     <br>
+    scanf(&quot;%lf %lf&quot;,&amp;firstNumber, &amp;secondNumber);     <br>
+    switch(operator)     <br>
+    {     <br>
+        case &#39;+&#39;:     <br>
+            printf(&quot;%.1lf + %.1lf = %.1lf&quot;,firstNumber, secondNumber, firstNumber+secondNumber);     <br>
+            break;     <br>
+        case &#39;-&#39;:     <br>
+            printf(&quot;%.1lf - %.1lf = %.1lf&quot;,firstNumber, secondNumber, firstNumber-secondNumber);     <br>
+            break;     <br>
+        case &#39;*&#39;:     <br>
+            printf(&quot;%.1lf * %.1lf = %.1lf&quot;,firstNumber, secondNumber, firstNumber*secondNumber);     <br>
+            break;     <br>
+        case &#39;/&#39;:     <br>
+            printf(&quot;%.1lf / %.1lf = %.1lf&quot;,firstNumber, secondNumber, firstNumber/secondNumber);     <br>
+            break;     <br>
+        // operator doesn&#39;t match any case constant (+, -, *, /)     <br>
+        default:     <br>
+            printf(&quot;Error! operator is not correct&quot;);     <br>
+    }     <br>
+    return 0;     <br>
+  }  
+  </p>
+  <p><strong>Output</strong></p>
+  <p class="example">
+   Enter an operator (+, -, *,): -     <br>
+   Enter two operands: 32.5     <br>
+   12.4     <br>
+   32.5 - 12.4 = 20.1    
+  </p>
+  <p>The <var>-</var> operator entered by the user is stored in <var>operator</var> variable. And, two operands <var>32.5</var> and <var>12.4</var> are stored in variables <var>firstNumber</var> and <var>secondNumber</var> respectively.</p>
+  <p>Then, control of the program jumps to</p>
+  <p class="example">
+printf(&quot;%.1lf / %.1lf = %.1lf&quot;,firstNumber, secondNumber, firstNumber/firstNumber);
+  </p>
+  <p>Finally, the <a href="b4.html">break statement</a> terminates the switch statement.</p>
+  <hr>
+ <body>
+<html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Keywords and Identifiers</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Keywords and Identifiers</h1>
+  <hr>
+  <p>In this tutorial, you will learn about keywords; reserved words in C programming that are part of the syntax. Also, you will learn about identifiers and proper way to name a variable.</p>
+  <h2>Table of Contents</h2>
+   <ul id="content">
+     <li><a href="#1">Character set</a></li>
+     <li><a href="#2">Keywords</a></li>
+     <li><a href="#3">Identifiers</a></li>
+     <li><a href="#4">Rules for naming Identifiers (variables, functions etc.)</a></li>
+   </ul>
+  <img src="../images/keyword.jpg" alt="keywords" style="max-width:70%"> 
+  <h2 id="1">Character set</h2> 
+  <p>Character set is a set of alphabets, letters and some special characters that are valid in C language.</p>
+  <h3>Alphabets</h3>
+   <p class="example">
+  Uppercase: A B C ................................... X Y Z<br>
+  Lowercase: a b c ...................................... x y z</p>
+  <p>C accepts both lowercase and uppercase alphabets as variables and functions.</p>
+  <h3>Digits</h3>
+  <p class="example">
+  0 1 2 3 4 5 6 7 8 9</p>
+  <h3>Special Characters</h3>
+  <table style="width:50%">
+		<tr>
+			<td>,</td>
+			<td>&lt;</td>
+			<td>&gt;</td>
+			<td>.</td>
+			<td>_</td>
+		</tr>
+		<tr>
+			<td>(</td>
+			<td>)</td>
+			<td>;</td>
+			<td>$</td>
+			<td>:</td>
+		</tr>
+		<tr>
+			<td>%</td>
+			<td>[</td>
+			<td>]</td>
+			<td>#</td>
+			<td>?</td>
+		</tr>
+		<tr>
+			<td>&#39;</td>
+			<td>&amp;</td>
+			<td>{</td>
+			<td>}</td>
+			<td>&quot;</td>
+		</tr>
+		<tr>
+			<td>^</td>
+			<td>!</td>
+			<td>*</td>
+			<td>/</td>
+			<td>|</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>\</td>
+			<td>~</td>
+			<td>+</td>
+			<td>&nbsp;</td>
+		</tr>
+  </table>
+  <p><strong>White space Characters</strong></p>
+  <p>blank space, new line, horizontal tab, carriage return and form feed</p>
+  <h2 id="2">Keywords</h2>
+  <p>Keywords are predefined, reserved words used in programming that have special meanings to the compiler. Keywords are part of the syntax and   they cannot be used as an identifier. For example:</p>
+  <p class="example">
+  int money;</p>
+<p>Here, <var>int</var> is a keyword that indicates <var>'money'</var> is a variable of type integer.</p>
+  <p>As C is a case sensitive language, all keywords must be written in lowercase. Here is a list of all keywords allowed in ANSI C.</p>
+  <table style="width:50%">
+		<tr>
+			<td>auto</td>
+			<td>double</td>
+			<td>int</td>
+			<td>struct</td>
+		</tr>
+		<tr>
+			<td>break</td>
+			<td>else</td>
+			<td>long</td>
+			<td>switch</td>
+		</tr>
+		<tr>
+			<td>case</td>
+			<td>enum</td>
+			<td>register</td>
+			<td>typedef</td>
+		</tr>
+		<tr>
+			<td>char</td>
+			<td>extern</td>
+			<td>return</td>
+			<td>union</td>
+		</tr>
+		<tr>
+			<td>continue</td>
+			<td>for</td>
+			<td>signed</td>
+			<td>void</td>
+		</tr>
+		<tr>
+			<td>do</td>
+			<td>if</td>
+			<td>static</td>
+			<td>while</td>
+		</tr>
+		<tr>
+			<td>default</td>
+			<td>goto</td>
+			<td>sizeof</td>
+			<td>volatile</td>
+		</tr>
+		<tr>
+			<td>const</td>
+			<td>float</td>
+			<td>short</td>
+			<td>unsigned</td>
+		</tr>
+  </table>
+  <p>Along with these keywords, C supports other numerous keywords depending upon the compiler.</p>
+  <p>All these keywords, their syntax and application will be discussed in their respective topics.</p> 
+  <h2 id="3">Identifiers</h2>
+  <p>Identifier refers to name given to entities such as variables, functions, structures etc.</p>
+  <p>Identifier must be unique. They are created to give unique name to a entity to identify it during the execution of the program. For example:</p>
+  <p class="example">
+  int money;
+  double accountBalance;</p>
+  <p>Here, <var>money</var> and <var>accountBalance</var> are identifiers.</p>
+  <p>Also remember, identifier names must be different from keywords. You cannot use int as an identifier because int is a keyword.</p>
+  <h3 id="4">Rules for naming identifiers</h3>
+  <ol>
+  	<li>A valid identifier can have letters (both uppercase and lowercase letters), digits and underscores.</li>
+   	<li>The first letter of an identifier should be either a letter or an underscore.</li>
+  	<li>There is no rule on how long an identifier can be. However, you may run into problems in some compilers if identifier is longer than 31  characters.</li>
+  </ol>
+  <h3>Good Programming Practice</h3>
+  <p>You can choose any name as an identifier following the rules (excluding keywords). However, give meaningful name to an identifier (variables,   function names etc). It will make your and your fellow programmers life much easier.</p>
+ </body>
+</html>

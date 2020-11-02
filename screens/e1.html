@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Pointers</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Pointers</h1>
+  <hr>
+  <p>In this article,you'll learn about pointers;what are they,how do you use them and the common mistakes you might face when working with them.</p>
+  <hr>
+  <h3>Table of Contents</h3>
+  <ul>
+	<li><a href="#1">What is a pointer?</a></li>
+	<li><a href="#2">Address in C</a></li>
+	<li><a href="#3">Pointer Variables</a></li>
+	<li><a href="#4">&amp; and * operator</a></li>
+	<li><a href="#5">Example: How pointer works?</a></li>
+	<li><a href="#6">Common Mistakes</a></li>
+  </ul>
+  <p id="1">Pointers are powerful features of C and (C++) programming that differentiates it from other popular programming languages like&nbsp;Java and Python.</p>
+  <p>Pointers are used in C program to access the memory and manipulate the address.</p>
+  <hr>
+  <h2 id="2">Address in C</h2>
+  <p>Before you get into the concept of pointers, let&#39;s first get familiar with address in C.</p>
+  <p>If you have a variable <var>var</var> in your program, <var>&amp;var</var> will give you its address in the memory, where <var>&amp;</var> is commonly called the reference operator.</p>
+  <p>You must have seen this notation while using <var>scanf()</var> function. It was used in the function to store the user inputted value in the address of <var>var</var>.</p>
+  <p class="example">scanf(&quot;%d&quot;, &amp;var);</p>
+  <p class="example">
+  #include &lt;stdio.h&gt;     <br>
+  int main()    <br>
+  {    <br>
+   int var = 5;    <br>
+   printf(&quot;Value: %d\n&quot;, var);    <br>
+   printf(&quot;Address: %u&quot;, &amp;var);    <br>
+   return 0;    <br>
+  }
+  </p>
+  <p><strong>Output</strong></p>
+  <p class="example">
+  Value: 5     <br>
+  Address: 2686778</p>
+  <p><strong>Note:</strong> You may obtain different value of address while using this code.</p>
+  <p>In above source code, value 5 is stored in the memory location 2686778. <var>var</var> is just the name given to that location.</p>
+  <hr>
+  <h2 id="3">Pointer variables</h2>
+  <p>In C, you can create a special variable that stores the address (rather than the value). This variable is called pointer variable or&nbsp;simply&nbsp;a pointer.</p>
+  <p><strong>How to create a pointer variable?</strong></p>
+  <p class="example">
+  data_type* pointer_variable_name;    <br>
+  int* p;
+  </p>
+  <p>Above statement defines, <var>p</var> as pointer variable of type <var>int</var>.</p>
+  <hr>
+  <h3 id="4">Reference operator (&amp;) and Dereference operator (*)</h3>
+  <p>As discussed, <var>&amp;</var> is called reference operator. It gives you the address of a variable.</p>
+  <p>Likewise, there is another operator that gets you the value from the address, it is called a dereference operator&nbsp; <var>*</var>.</p>
+  <p>Below example clearly demonstrates the use of pointers, reference operator and dereference operator.</p>
+  <p><strong>Note:</strong> The <var>*</var> sign when declaring a pointer is not a dereference operator. It is just a similar notation that creates a pointer.</p>
+  <hr>
+  <h3 id="5">Example: How Pointer Works?</h3>
+  <p class="example">
+   #include &lt;stdio.h&gt;    <br>
+   int main()    <br>
+  {    <br>
+   int* pc, c;     <br>
+   c = 22;    <br>
+   printf(&quot;Address of c: %u\n&quot;, &amp;c);    <br>
+   printf(&quot;Value of c: %d\n\n&quot;, c);    <br>
+   pc = &amp;c;    <br>
+   printf(&quot;Address of pointer pc: %u\n&quot;, pc);    <br>
+   printf(&quot;Content of pointer pc: %d\n\n&quot;, *pc);       <br>
+   c = 11;    <br>
+   printf(&quot;Address of pointer pc: %u\n&quot;, pc);    <br>
+   printf(&quot;Content of pointer pc: %d\n\n&quot;, *pc);    <br>
+   *pc = 2;    <br>
+   printf(&quot;Address of c: %u\n&quot;, &amp;c);    <br>
+   printf(&quot;Value of c: %d\n\n&quot;, c);    <br>
+   return 0;    <br>
+  }
+  </p>
+  <p><strong>Output</strong></p>
+  <p class="example">
+   Address of c: 2686784    <br>
+   Value of c: 22    <br>
+        <br>
+   Address of pointer pc: 2686784    <br>
+   Content of pointer pc: 22    <br>
+            <br>
+   Address of pointer pc: 2686784    <br>
+   Content of pointer pc: 11    <br>
+              <br>
+   Address of c: 2686784    <br>
+   Value of c: 2
+  </p>
+  <hr>
+  <h3 id="6">Common mistakes when working with pointers</h3>
+  <p>Suppose, you want pointer <var>pc</var> to point to the address of <var>c</var>. Then,</p>
+  <p class="example">
+  int c, *pc;    <br>
+  // Wrong! pc is address whereas,     <br>
+  // c is not an address.    <br>
+  pc = c;      <br>
+  // Wrong! *pc is the value pointed by address whereas,     <br>
+  // &amp;c is an address.    <br>
+  *pc = &amp;c;     <br>
+  // Correct! pc is an address and,     <br>
+  // &amp;c is also an address.    <br>
+  pc = &amp;c;     <br>
+  // Correct! *pc is the value pointed by address and,     <br>
+  // c is also a value (not address).    <br>
+  *pc = c;
+  </p>
+  </body>
+</html>

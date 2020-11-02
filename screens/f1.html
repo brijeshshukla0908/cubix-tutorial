@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Structure</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Programming Structure</h1>
+  <hr>
+  <p>In this article, you'll learn about C programming structures; what they are, and how to define and use structures in your program.</p>
+  <hr>
+  <h3>Table of Contents</h3>
+  <ul>
+	<li><a href="#1">What is a structure?</a></li>
+	<li><a href="#2">How to define a structure?</a></li>
+	<li><a href="#3">Create structure variable</a></li>
+	<li><a href="#4">Access members of a structure</a></li>
+	<li><a href="#5">Example: Add two distances</a></li>
+	<li><a href="#6">Keyword typedef</a></li>
+	<li><a href="#7">Nested structures</a></li>
+  </ul>
+  <p id="1">Structure is a collection of variables (can be of different types) under a single name.</p>
+  <p><strong>For example: </strong>You want to store information about a person: his/her name, citizenship number and salary. You can create different variables <var>name</var>, <var>citNo</var> and <var>salary</var> to store these information separately.</p>
+  <p>What if you need to store information of more than one person? Now, you need to create different variables for each information per person: <var>name1</var>, <var>citNo1</var>, <var>salary1</var>, <var>name2</var>, <var>citNo2</var>, <var>salary2</var> etc.</p>
+  <p>A better approach would be to have a collection of all related information under a single name <var>Person</var> structure, and use it for every person.</p>
+  <hr>
+  <h2 id="2">How to define a structure?</h2>
+  <p>Keyword <var>struct</var> is used for creating a structure.</p>
+  <hr>
+  <h3>Syntax of structure</h3>
+   <p class="example">
+   struct structure_name        <br>
+  {       <br>
+    data_type member1;       <br>
+    data_type member2;       <br>
+    .       <br>
+    .       <br>
+    data_type memeber;       <br>
+  };
+  </p>
+  <p>Here is an example:</p>
+  <p class="example">
+  struct Person       <br>
+  {       <br>
+    char name[50];       <br>
+    int citNo;       <br>
+    float salary;       <br>
+  };
+  </p>
+  <p>Here, a&nbsp;derived&nbsp;type <var>struct Person</var>&nbsp;is defined.</p>
+  <hr>
+  <h2 id="3">Create structure variable</h2>
+  <p>When a structure is defined, it creates a user-defined type. However, no storage or memory is allocated. To allocate memory of a given structure type and work with it, we need to create variables.&nbsp;</p>
+  <p>Here&#39;s how we create structure variables:</p>
+  <p class="example">
+  struct Person       <br>
+  {       <br>
+    char name[50];       <br>
+    int citNo;       <br>
+    float salary;       <br> 
+  };              <br>
+  int main()       <br>
+  {       <br>
+    struct Person person1, person2, p[20];       <br>
+    return 0;       <br>
+  }
+  </p>
+  <p>Another way of creating a structure variable is:</p>
+  <p class="example">
+  struct Person       <br>
+  {       <br>
+    char name[50];       <br>
+    int citNo;       <br>
+    float salary;       <br>
+  } person1, person2, p[20];       
+  </p>
+  <p>In both cases, two variables <var>person1</var>, <var>person2</var>, and an array variable <var>p</var> having 20 elements of type <strong>struct Person</strong> are created.</p>
+  <hr>
+  <h2 id="4">How to Access members of a structure?</h2>
+  <p>There are two types of operators used for accessing members of a structure.</p>
+  <ol>
+	<li>Member operator(.)</li>
+	<li>Structure pointer operator(-&gt;) (will be discussed in structure and pointers)</li>
+  </ol>
+  <p>Suppose, you want to access salary of <var>person2</var>. Here&#39;s how you can do it:</p>
+  <p class="example">
+  person2.salary</p>
+  </p>
+  <h3 id="5">Example: C structure</h3>
+  <p class="example">
+   // Program to add two distances which is in feet and inches       <br>
+   #include &lt;stdio.h&gt;       <br>
+   struct Distance       <br>
+  {       <br>
+    int feet;       <br>
+    float inch;       <br>
+  } dist1, dist2, sum;       <br>
+   int main()       <br>
+  {       <br>
+    printf(&quot;1st distance\n&quot;);       <br>
+    printf(&quot;Enter feet: &quot;);       <br>
+    scanf(&quot;%d&quot;, &amp;dist1.feet);       <br>
+    printf(&quot;Enter inch: &quot;);       <br>
+    scanf(&quot;%f&quot;, &amp;dist1.inch);       <br>
+    printf(&quot;2nd distance\n&quot;);       <br>
+    printf(&quot;Enter feet: &quot;);       <br>
+    scanf(&quot;%d&quot;, &amp;dist2.feet);       <br>
+    printf(&quot;Enter inch: &quot;);       <br>
+    scanf(&quot;%f&quot;, &amp;dist2.inch);       <br>
+    // adding feet       <br>
+    sum.feet = dist1.feet + dist2.feet;       <br>
+    // adding inches       <br>
+    sum.inch = dist1.inch + dist2.inch;       <br>
+    // changing feet if inch is greater than 12       <br>
+    while (sum.inch &gt;= 12)        <br>
+    {       <br>
+        ++sum.feet;       <br>
+        sum.inch = sum.inch - 12;       <br>
+    }       <br>
+    printf(&quot;Sum of distances = %d\&#39;-%.1f\&quot;&quot;, sum.feet, sum.inch);       <br>
+    return 0;       <br>
+  }
+  </p>
+  <p><strong>Output</strong></p>
+  <p class="example">
+  <samp>1st distance
+  Enter feet: 12
+  Enter inch: 7.9
+  2nd distance
+  Enter feet: 2
+  Enter inch: 9.8
+  Sum of distances = 15&#39;-5.7&quot;
+  </p>
+  <hr>
+  <h3 id="6">Keyword typedef</h3>
+  <p>Keyword typedef can be used to simplify syntax of a structure.</p>
+  <p><strong>This code</strong></p>
+  <p class="example">
+   struct Distance       <br>
+   {       <br>
+    int feet;       <br>
+    float inch;        <br>
+   };       <br>
+    int main()       <br>
+   {       <br>
+    structure Distance d1, d2;       <br>
+   }
+  </p>
+  <p><strong>is equivalent to</strong></p>
+  <p class="example">
+  typedef struct Distance       <br>
+  {       <br>
+    int feet;       <br>
+    float inch;       <br>
+  } distances;       <br>
+  int main()       <br>
+  {       <br>
+    distances dist1, dist2, sum;       <br>
+  }
+  </p>
+  </p>
+  <h2 id="7">Nested Structures</h2>
+  <p>You can create structures within a structure in C programming. For example:</p>
+  <p class="example">
+   struct complex       <br>
+  {       <br>
+   int imag;       <br>
+   float real;       <br>
+  };       <br>
+  struct number       <br>
+  {       <br>
+   struct complex comp;       <br>
+   int integers;       <br>
+  } num1, num2;       <br>
+  </p>
+  <p>Suppose, you want to set <var>imag</var> of <var>num2</var> variable to 11. Here&#39;s how you can do it:</p>
+  <p class="example">
+  num2.comp.imag = 11;</p>
+  <hr> 
+  </body>
+</html>

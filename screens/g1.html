@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Files </title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Programming Files I/O</h1> 
+  <hr>
+  <p>There are a large number of functions to handle file I/O (Input Output) in C. In this tutorial, you will learn to handle standard I/O in C using fprintf(), fscanf(), fread(), fwrite(), fseek.and more.</p>
+  <hr>
+  <h3>Table of Contents</h3>
+  <ul>
+	<li><a href="#1">Why files?</a></li>
+	<li><a href="#2">Types of files</a></li>
+	<li><a href="#3">File Operations</a>
+		<ul>
+			<li><a href="#3a">Opening a file</a></li>
+			<li><a href="#3b">Closing a file</a></li>
+			<li><a href="#3c">Example: Write to a text file</a></li>
+			<li><a href="#3d">Example: Read from a text file</a></li>
+		</ul>
+	</li>
+	<li><a href="#4">Read and write binary files</a>
+		<ul>
+			<li><a href="#4a">Write to a binary file (with example)</a></li>
+			<li><a href="#4b">Read from a binary file (with example)</a></li>
+		</ul>
+	</li>
+	<li><a href="#5">Get data using fseek()</a>
+		<ul>
+			<li><a href="#5a">Syntax of fseek()</a></li>
+			<li><a href="#5b">Example: fseek()</a></li>
+		</ul>
+	</li>
+  </ul>
+  <p>In C programming, file is a place on your physical disk where information is stored.</p>
+  <hr>
+  <h2 id="1">Why files are needed?</h2>
+  <ul>
+	<li>When a program is terminated, the entire data is lost. Storing in a file will preserve your data even if the program terminates.</li>
+	<li>If you have to enter a large number of data, it will take a lot of time to enter them all.<br />
+		However, if you have a file containing all the data, you can easily access the contents of the file using few commands in C.</li>
+	<li>You can easily move your data from one computer to another without any changes.</li>
+  </ul>
+  <hr>
+  <h2 id="2">Types of Files</h2>
+  <p>When dealing with files, there are two types of files you should know about:</p>
+  <ol>
+	<li>Text files</li>
+	<li>Binary files</li>
+  </ol>
+  <h3>1. Text files</h3>
+  <p>Text files are the normal .txt files that you can easily create using Notepad or any simple text editors.</p>
+  <p>When you open those files, you&#39;ll see all the contents within the file as plain text. You can easily edit or delete the contents.</p>
+  <p>They take minimum effort to maintain, are easily readable, and provide least security and takes bigger storage space.</p>
+  <h3>2. Binary files</h3>
+  <p>Binary files are mostly the .bin files in your computer.</p>
+  <p>Instead of storing data in plain text, they store it in the binary form (0&#39;s and 1&#39;s).</p>
+  <p>They can hold higher amount of data, are not readable easily and provides a better security than text files.</p>
+  <hr>
+  <h2 id="3">File Operations</h2>
+  <p>In C, you can perform four major operations on the file, either text or binary:</p>
+  <ol>
+	<li>Creating a new file</li>
+	<li>Opening an existing file</li>
+	<li>Closing a file</li>
+	<li>Reading from and writing information to a file</li>
+  </ol>
+  <hr>
+  <h2>Working with files</h2>
+  <p>When working with files, you need to declare a pointer of type file. This declaration is needed for communication between the file and program.</p>
+  <p class="example">FILE *fptr;</p>
+  <hr>
+  <h2 id="3a">Opening a file - for creation and edit</h2>
+  <p>Opening a file is performed using the library function in the <strong>&quot;stdio.h&quot;</strong> header file: fopen().</p>
+  <p>The syntax for opening a file in standard I/O is:</p>
+  <p class="example">ptr = fopen(&quot;fileopen&quot;,&quot;mode&quot;)</p>
+  <p>For Example:</p>
+  <p class="example">
+   fopen(&quot;E:\\cprogram\\newprogram.txt&quot;,&quot;w&quot;);<br>
+   fopen(&quot;E:\\cprogram\\oldprogram.bin&quot;,&quot;rb&quot;);
+  </p>
+  <ul>
+	<li>Let&#39;s suppose the file <var>newprogram.txt</var> doesn&#39;t exist in the location <var>E:\cprogram</var>. The first function creates a new file named <var>newprogram.txt</var> and opens it for writing as per the mode &#39;w&#39;.<br />
+		The writing mode allows you to create and edit (overwrite) the contents of the file.</li>
+	<li>Now let&#39;s suppose the second binary file <var>oldprogram.bin</var> exists in the location <var>E:\cprogram</var>. The second function opens the existing file for reading in binary mode &#39;rb&#39;.<br />
+		The reading mode only allows you to read the file, you cannot write into the file.</li>
+  </ul>
+  <table>
+	<thead>
+		<tr>
+			<th>File Mode</th>
+			<th>Meaning of Mode</th>
+			<th>During Inexistence of file</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>r</td>
+			<td>Open for reading.</td>
+			<td>If the file does not exist, fopen() returns NULL.</td>
+		</tr>
+		<tr>
+			<td>rb</td>
+			<td>Open for reading in binary mode.</td>
+			<td>If the file does not exist, fopen() returns NULL.</td>
+		</tr>
+		<tr>
+			<td>w</td>
+			<td>Open for writing.</td>
+			<td>If the file exists, its contents are overwritten. If the file does not exist, it will be created.</td>
+		</tr>
+		<tr>
+			<td>wb</td>
+			<td>Open for writing in binary mode.</td>
+			<td>If the file exists, its contents are overwritten. If the file does not exist, it will be created.</td>
+		</tr>
+		<tr>
+			<td>a</td>
+			<td>Open for append. i.e, Data is added to end of file.</td>
+			<td>If the file does not exists, it will be created.</td>
+		</tr>
+		<tr>
+			<td>ab</td>
+			<td>Open for append in binary mode. i.e, Data is added to end of file.</td>
+			<td>If the file does not exists, it will be created.</td>
+		</tr>
+		<tr>
+			<td>r+</td>
+			<td>Open for both reading and writing.</td>
+			<td>If the file does not exist, fopen() returns NULL.</td>
+		</tr>
+		<tr>
+			<td>rb+</td>
+			<td>Open for both reading and writing in binary mode.</td>
+			<td>If the file does not exist, fopen() returns NULL.</td>
+		</tr>
+		<tr>
+			<td>w+</td>
+			<td>Open for both reading and writing.</td>
+			<td>If the file exists, its contents are overwritten. If the file does not exist, it will be created.</td>
+		</tr>
+		<tr>
+			<td>wb+</td>
+			<td>Open for both reading and writing in binary mode.</td>
+			<td>If the file exists, its contents are overwritten. If the file does not exist, it will be created.</td>
+		</tr>
+		<tr>
+			<td>a+</td>
+			<td>Open for both reading and appending.</td>
+			<td>If the file does not exists, it will be created.</td>
+		</tr>
+		<tr>
+			<td>ab+</td>
+			<td>Open for both reading and appending in binary mode.</td>
+			<td>If the file does not exists, it will be created.</td>
+		</tr>
+	</tbody>
+  </table>
+  <hr>
+  <h2 id="3b">Closing a File</h2>
+  <p>The file (both text and binary) should be closed after reading/writing.</p>
+  <p>Closing a file is performed using library function fclose().</p>
+  <p class="example">fclose(fptr); //fptr is the file pointer associated with file to be closed.</p>
+  <hr>
+  <h2 id="3b">Reading and writing to a text file</h2>
+  <p>For reading and writing to a text file, we use the functions <var>fprintf()</var> and <var>fscanf().</var></p>
+  <p>They are just the file versions of <var>printf()</var> and <var>scanf()</var>. The only difference is that, fprint and fscanf expects a pointer to the structure FILE.</p>
+  <hr>
+  <h3 id="3c">Example 1: Write to a text file using fprintf()</h3>
+  <p class="example">
+   #include &lt;stdio.h&gt;      <br>
+   #include &lt;stdlib.h&gt;      <br>
+    int main()      <br>
+  {      <br>
+   int num;      <br>
+   FILE *fptr;      <br>
+   fptr = fopen(&quot;C:\\program.txt&quot;,&quot;w&quot;);      <br>
+   if(fptr == NULL)      <br>
+   {      <br>
+      printf(&quot;Error!&quot;);         <br>
+      exit(1);                   <br>
+   }      <br>
+   printf(&quot;Enter num: &quot;);      <br>
+   scanf(&quot;%d&quot;,&amp;num);      <br>
+   fprintf(fptr,&quot;%d&quot;,num);      <br>
+   fclose(fptr);      <br>
+   return 0;      <br>
+  }
+  </p>
+  <p>This program takes a number from user and stores in the file <var>program.txt</var>.</p>
+  <p>After you compile and run this program, you can see a text file program.txt created in C drive of your computer. When you open the file, you can see the integer you entered.</p>
+  <hr>
+  <h3 id="3d">Example 2: Read from a text file using fscanf()</h3>
+  <p class="example">
+   #include &lt;stdio.h&gt;      <br>
+   #include &lt;stdlib.h&gt;      <br>
+   int main()      <br>
+  {      <br>
+   int num;      <br>
+   FILE *fptr;      <br>
+   if ((fptr = fopen(&quot;C:\\program.txt&quot;,&quot;r&quot;)) == NULL){      <br>
+       printf(&quot;Error! opening file&quot;);      <br>
+
+       // Program exits if the file pointer returns NULL.      <br>
+       exit(1);      <br>
+   }      <br>
+   fscanf(fptr,&quot;%d&quot;, &amp;num);      <br>
+   printf(&quot;Value of n=%d&quot;, num);      <br>
+   fclose(fptr);         <br>
+   return 0;      <br>
+  }
+  </p>
+  <p>This program reads the integer present in the <var>program.txt</var> file and prints it onto the screen.</p>
+  <p>If you successfully created the file from <strong>Example 1</strong>, running this program will get you the integer you entered.</p>
+  <p>Other functions like <var>fgetchar()</var>, <var>fputc()</var> etc. can be used in similar way.</p>
+  <hr>
+  <h2 id="4">Reading and writing to a binary file</h2>
+  <p>Functions <var>fread()</var> and <var>fwrite()</var> are used for reading from and writing to a file on the disk respectively in case of binary files.</p>
+  <hr>
+  <h3 id="4a">Writing to a binary file</h3>
+  <p>To write into a binary file, you need to use the function fwrite(). The functions takes four arguments: Address of data to be written in disk, Size of data to be written in disk, number of such type of data and pointer to the file where you want to write.</p>
+  <p class="example">fwrite(address_data,size_data,numbers_data,pointer_to_file);</p>
+  <hr>
+  <h3>Example 3: Write to a binary file using fwrite()</h3>
+  <p class="example">
+   #include &lt;stdio.h&gt;      <br>
+   #include &lt;stdlib.h&gt;      <br>
+    struct threeNum      <br>
+  {      <br>
+   int n1, n2, n3;      <br>
+  };      <br>
+  int main()      <br>
+  {      <br>
+   int n;      <br>
+   struct threeNum num;      <br>
+   FILE *fptr;      <br>
+   if ((fptr = fopen(&quot;C:\\program.bin&quot;,&quot;wb&quot;)) == NULL){      <br>
+       printf(&quot;Error! opening file&quot;);      <br>
+       // Program exits if the file pointer returns NULL.      <br>
+       exit(1);      <br>
+   }      <br>
+   for(n = 1; n &lt; 5; ++n)      <br>
+   {      <br>
+      num.n1 = n;      <br>
+      num.n2 = 5*n;      <br>
+      num.n3 = 5*n + 1;      <br>
+      fwrite(&amp;num, sizeof(struct threeNum), 1, fptr);       <br>
+   }      <br>
+   fclose(fptr);         <br>
+   return 0;      <br>
+  }
+  </p>
+  <p>In this program, you create a new file <var>program.bin</var> in the C drive.</p>
+  <p>We declare a structure <var>threeNum</var> with three numbers - <var>n1, n2 and n3</var>, and define it in the main function as num.</p>
+  <p>Now, inside the for loop, we store the value into the file using fwrite().</p>
+  <p>The first parameter takes the address of <var>num</var> and the second parameter takes the size of the structure <var>threeNum</var>.</p>
+  <p>Since, we&#39;re only inserting one instance of <var>num</var>, the third parameter is <var>1</var>. And, the last parameter <var>*fptr</var> points to the file we&#39;re storing the data.</p>
+  <p>Finally, we close the file.</p>
+  <hr>
+  <h3 id="4b">Reading from a binary file</h3>
+  <p>Function <var>fread()</var> also take 4 arguments similar to <var>fwrite()</var> function as above.</p>
+  <p class="example">
+fread(address_data,size_data,numbers_data,pointer_to_file);</p>
+  <hr>
+  <h3>Example 4: Read&nbsp;from a binary file using fread()</h3>
+  <p class="example">
+   #include &lt;stdio.h&gt;      <br>
+   #include &lt;stdlib.h&gt;        <br>
+    struct threeNum      <br>
+  {      <br>
+   int n1, n2, n3;      <br>
+  };      <br>
+   int main()      <br>
+  {      <br>
+   int n;      <br>
+   struct threeNum num;      <br>
+   FILE *fptr;      <br>
+   if ((fptr = fopen(&quot;C:\\program.bin&quot;,&quot;rb&quot;)) == NULL){      <br>
+       printf(&quot;Error! opening file&quot;);      <br>
+       // Program exits if the file pointer returns NULL.      <br>
+       exit(1);      <br>
+   }      <br>
+   for(n = 1; n &lt; 5; ++n)      <br>
+   {      <br>
+      fread(&amp;num, sizeof(struct threeNum), 1, fptr);       <br>
+      printf(&quot;n1: %d\tn2: %d\tn3: %d&quot;, num.n1, num.n2, num.n3);      <br>
+   }      <br>
+   fclose(fptr);         <br>
+   return 0;      <br>
+  }
+  </p>
+  <p>In this program, you read the same file <var>program.bin</var> and loop through the records one by one.</p>
+  <p>In simple terms, you read one <var>threeNum</var> record of <var>threeNum</var> size from the file pointed by <var>*fptr</var> into the structure <var>num</var>.</p>
+  <p>You&#39;ll get the same records you inserted in Example 3.</p>
+  <hr>
+  <h2 id="5">Getting data using fseek()</h2>
+  <p>If you have many records inside a file and need to access a record at a specific position, you need to loop through all the records before it to get the record.</p>
+  <p>This will waste a lot of memory and operation time. An easier way to get to the required data can be achieved using fseek().</p>
+  <p>As the name suggests, fseek() seeks the cursor to the given record in the file.</p>
+  <hr>
+  <h3 id="5a">Syntax of fseek()</h3>    
+  <p class="example">
+  fseek(FILE * stream, long int offset, int whence)</p>
+  <p>The first parameter stream is the pointer to the file. The second parameter is the position of the record to be found, and the third parameter specifies the location where the offset starts.</p>
+<table>
+	<caption>Different Whence in fseek</caption>
+	<thead>
+		<tr>
+			<th>Whence</th>
+			<th>Meaning</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>SEEK_SET</td>
+			<td>Starts the offset from the beginning of the file.</td>
+		</tr>
+		<tr>
+			<td>SEEK_END</td>
+			<td>Starts the offset from the end of the file.</td>
+		</tr>
+		<tr>
+			<td>SEEK_CUR</td>
+			<td>Starts the offset from the current location of the cursor in the file.</td>
+		</tr>
+	</tbody>
+  </table>
+  <hr>
+  <h3 id="5b">Example 5:&nbsp;fseek()</h3>
+  <p class="example">
+   #include &lt;stdio.h&gt;      <br>
+   #include &lt;stdlib.h&gt;      <br>
+  struct threeNum      <br>
+  {      <br>
+   int n1, n2, n3;      <br>
+  };      <br>
+  int main()      <br>
+  {      <br>
+   int n;      <br>
+   struct threeNum num;      <br>
+   FILE *fptr;      <br>
+   if ((fptr = fopen(&quot;C:\\program.bin&quot;,&quot;rb&quot;)) == NULL){      <br>
+       printf(&quot;Error! opening file&quot;);      <br>
+       // Program exits if the file pointer returns NULL.      <br>
+       exit(1);      <br>
+   }         <br>
+   // Moves the cursor to the end of the file      <br>
+   fseek(fptr, -sizeof(struct threeNum), SEEK_END);      <br>
+   for(n = 1; n &lt; 5; ++n)      <br>
+   {      <br>
+      fread(&amp;num, sizeof(struct threeNum), 1, fptr);       <br>
+      printf(&quot;n1: %d\tn2: %d\tn3: %d\n&quot;, num.n1, num.n2, num.n3);      <br>
+      fseek(fptr, -2*sizeof(struct threeNum), SEEK_CUR);      <br>
+   }      <br>
+   fclose(fptr);      <br>
+   return 0;      <br>
+  }
+  </p>
+  <p>This program will start reading the records from the file <var>program.bin</var> in the reverse order (last to first) and prints it.</p>
+ </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming while and do...while Loop</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>C Programming while and do...while Loop</h1>
+  <hr>
+  <p>Loops are used in programming to repeat a specific block of var. After reading this tutorial, you will learn to create for loop in C programming.</p>
+  <hr>
+  <h2>Table of Contents</h2>
+  <ul>
+   <li><a href="#1">What is loop?</a></li>
+   <li><a href="#2">while Loop</a>
+		<ul>
+			<li><a href="#2a">How while loop works?</a></li>
+			<li><a href="#2b">Flowchart of while loop</a></li>
+			<li><a href="#2c">Example: while loop</a></li>
+		</ul>
+   </li>
+   <li><a href="#3">do...while Loop</a>
+		<ul>
+			<li><a href="#3a">How do...while loop works?</a></li>
+			<li><a href="#3b">Flowchart of do...while loop</a></li>
+			<li><a href="#3c">Example: do...while loop</a></li>
+		</ul>
+   </li>
+  </ul>
+  
+
+
+
+
+
+  <p id="1">Loops are used in programming to repeat a block until a specific condition is met. There are three loops in C programming:</p>
+  <ol>
+	<li><a href="b2.html">for loop</a></li>
+	<li>while loop</li>
+	<li>do...while loop</li>
+  </ol>
+  <hr>
+  <h2 id="2"></a>while loop</h2>
+  <p>The syntax of a while loop is:</p>
+  <p class="example">
+   while (testExpression)  <br>
+   {    <br>
+    //codes       <br>
+   }   
+  </p>
+  <hr>
+  <h3 id="2a">How while loop works?</h3>
+  <p>The while loop evaluates the test expression.</p>
+  <p>If the test expression is true (nonzero), vars inside the body of while loop is executed. The test expression is evaluated again. The process goes on until the test expression is false.</p>
+  <p>When the test expression is false, the while loop is terminated.</p>
+  <hr>
+  <h3 id="2b">Flowchart of while loop</h3>
+  <p><img src="../images/whileflow.jpg" alt="flowchart of while loop in C " width="50%"></p>
+  <hr>
+  <h3 id="2c">Example 1: while loop</h3>
+  <p class="example">
+   // Program to find factorial of a number     <br>
+   // For a positive integer n, factorial = 1*2*3...n     <br>
+    #include &lt;stdio.h&gt;     <br>
+    int main()     <br>
+  {     <br>
+    int number;     <br>
+    long long factorial;     <br>
+    printf(&quot;Enter an integer: &quot;);     <br>
+    scanf(&quot;%d&quot;,&amp;number);     <br>
+    factorial = 1;     <br>
+    // loop terminates when number is less than or equal to 0     <br>
+    while (number &gt; 0)     <br>
+    {     <br>
+        factorial *= number;  // factorial = factorial*number;     <br>
+        --number;     <br>
+    }     <br>
+    printf(&quot;Factorial= %lld&quot;, factorial);     <br>
+    return 0;     <br>
+  }
+  </p>
+  <p><strong>Output</strong></p>
+  <p class="example">
+  Enter an integer: 5    <br>
+  Factorial = 120
+  </p>
+  <hr>
+  <h2 id="3">do...while loop</h2>
+  <p>The <var>do..while</var> loop is similar to the <var>while</var> loop with one important difference. The body of <var>do...while</var> loop is executed once, before checking the test expression. Hence, the <var>do...while loop</var> is executed at least once.</p>
+  <hr>
+  <h3>do...while loop Syntax</h3>
+  <p class="example">
+  do     <br>
+  {     <br>
+   // codes     <br>
+  }     <br>
+  while (testExpression);
+  </p>
+  <hr>
+  <h3 id="3a">How do...while loop works?</h3>
+  <p>The code block (loop body) inside the braces is executed once.</p>
+  <p>Then, the test expression is evaluated. If the test expression is true, the loop body is executed again. This process goes on until the test expression is evaluated to 0 (false).</p>
+  <p>When the test expression is false (nonzero), the <var>do...while</var> loop is terminated.</p>
+  <hr>
+  <h3 id="3b">Flowchart of do...while Loop</h3>
+  <p><img src="../images/doflow.jpg" alt="do while loop flowchart in C programming" width="50%"></p>
+  <hr>
+  <h3 id="3c">Example 2: do...while loop</h3>
+  <p class="example">
+   // Program to add numbers until user enters zero     <br>
+    #include &lt;stdio.h&gt;     <br>
+    int main()     <br>
+   {     <br>
+    double number, sum = 0;     <br>
+    // body of loop is executed at least once     <br>
+    do     <br>
+    {     <br>
+        printf(&quot;Enter a number: &quot;);     <br>
+        scanf(&quot;%lf&quot;, &amp;number);     <br>
+        sum += number;     <br>
+    }     <br>
+    while(number != 0.0);     <br>
+    printf(&quot;Sum = %.2lf&quot;,sum);     <br>
+    return 0;     <br>
+   }
+  </p>
+  <p><strong>Output</strong></p>
+  <p class="example">
+   Enter a number: 1.5     <br>
+   Enter a number: 2.4     <br>
+   Enter a number: -3.4     <br>
+   Enter a number: 4.2     <br>
+   Enter a number: 0     <br>
+   Sum = 4.70
+  </p>
+  </body>
+</html>
+

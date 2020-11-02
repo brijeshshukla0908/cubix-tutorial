@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Manipulations In C Programming Using Library Functions</title>
+    <link rel="stylesheet" href="../css/con.css">
+  </head>
+  <body>
+  <h1>String Manipulations In C Programming Using Library Functions</h1>
+  <hr>
+  <p>In this article, you'll learn to manipulate strings in C using library functions such as gets(), puts, strlen() and more. You'll learn to get string from the user and perform operations on the string.</p>
+  <p><img src="../images/strman.jpg" alt="String manipulations in C" style="max-width:80%"></p>
+  <p>You need to often manipulate strings according to the need of a problem. Most, if not all, of the time string manipulation can be done manually but, this makes programming complex and large.</p>
+  <p>To solve this, C supports a large number of string handling functions in the standard library<var>&quot;string.h&quot;</var>.</p>
+  <p>Few commonly used string handling functions are discussed below:</p>
+  <table>
+	<thead>
+		<tr>
+			<th>Function</th>
+			<th>Work of Function</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>strlen()</td>
+			<td>Calculates the length of string</td>
+		</tr>
+		<tr >
+			<td>strcpy()</td>
+			<td>Copies a string to another string</td>
+		</tr>
+		<tr>
+			<td>strcat()</td>
+			<td>Concatenates(joins) two strings</td>
+		</tr>
+		<tr>
+			<td>strcmp()</td>
+			<td>Compares two string</td>
+		</tr>
+		<tr>
+			<td>strlwr()</td>
+			<td>Converts string to lowercase</td>
+		</tr>
+		<tr>
+			<td>strupr()</td>
+			<td>Converts string to uppercase</td>
+		</tr>
+	</tbody>
+  </table>
+  <p>Strings handling functions are defined under <var>&quot;string.h&quot;</var> header file.</p>
+  <p class="example">#include &lt;string.h&gt;</p>
+  <p><strong>Note:</strong> You have to include the code below to run string handling functions.</p>
+  <h3>gets() and puts()</h3>
+  <p>Functions gets() and puts() are two string functions to take string input from the user and display it respectively.</p>
+  <p class="example">
+  #include&lt;stdio.h&gt;     <br>
+   int main()     <br>
+  {     <br>
+    char name[30];     <br>
+    printf(&quot;Enter name: &quot;);     <br>
+    gets(name);     //Function to read string from user.     <br>
+    printf(&quot;Name: &quot;);     <br>
+    puts(name);    //Function to display string.     <br>
+    return 0;
+  }</p>
+  <p><strong>Note: </strong>Though, <var>gets()</var> and <var>puts()</var> function handle strings, both these functions are defined in <var>&quot;stdio.h&quot;</var> header file.</p>
+  </body>
+</html>
+
+
+
